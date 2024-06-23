@@ -1,13 +1,16 @@
 let rootElement = document.getElementById('root');
 
-let reactElement =  <header>
-        <h1>Hello JSX!</h1>
-        <h2>JSX is the best in world!</h2>
+let reactElement = (
+    <div>
+        <header>
+            <h1>Hello JSX!</h1>
+            <h2>JSX is the best in world!</h2>
 
-        <p>loremwfaffwe</p>
+            <p>loremwfaffwe</p>
 
+        </header>
         <footer>All rigth reserved &copy;</footer>
-    </header>
-;
+    </div>
+);
 
 ReactDOM.render(reactElement, rootElement);
