@@ -4,6 +4,7 @@ import Shop from './components/Shop';
 import About from './components/About';
 import Offer from './components/Offer';
 import Blog from './components/Blog';
+import Client from './components/Client';
 import './App.css';
 
 function App() {
@@ -15,103 +16,8 @@ function App() {
       <About />
       <Offer />
       <Blog />
-
-      <section class="client_section layout_padding">
-        <div class="container">
-          <div class="heading_container">
-            <h2>
-              Testimonial
-            </h2>
-          </div>
-          <div id="carouselExample2Controls" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <div class="row">
-                  <div class="col-md-11 col-lg-10 mx-auto">
-                    <div class="box">
-                      <div class="img-box">
-                        <img src="images/client.jpg" alt="" />
-                      </div>
-                      <div class="detail-box">
-                        <div class="name">
-                          <h6>
-                            Samantha Jonas
-                          </h6>
-                        </div>
-                        <p>
-                          It is a long established fact that a reader will be
-                          distracted by the readable cIt is a long established fact
-                          that a reader will be distracted by the readable c
-                        </p>
-                        <i class="fa fa-quote-left" aria-hidden="true"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <div class="row">
-                  <div class="col-md-11 col-lg-10 mx-auto">
-                    <div class="box">
-                      <div class="img-box">
-                        <img src="images/client.jpg" alt="" />
-                      </div>
-                      <div class="detail-box">
-                        <div class="name">
-                          <h6>
-                            Samantha Jonas
-                          </h6>
-                        </div>
-                        <p>
-                          It is a long established fact that a reader will be
-                          distracted by the readable cIt is a long established fact
-                          that a reader will be distracted by the readable c
-                        </p>
-                        <i class="fa fa-quote-left" aria-hidden="true"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <div class="row">
-                  <div class="col-md-11 col-lg-10 mx-auto">
-                    <div class="box">
-                      <div class="img-box">
-                        <img src="images/client.jpg" alt="" />
-                      </div>
-                      <div class="detail-box">
-                        <div class="name">
-                          <h6>
-                            Samantha Jonas
-                          </h6>
-                        </div>
-                        <p>
-                          It is a long established fact that a reader will be
-                          distracted by the readable cIt is a long established fact
-                          that a reader will be distracted by the readable c
-                        </p>
-                        <i class="fa fa-quote-left" aria-hidden="true"></i>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="carousel_btn-container">
-              <a class="carousel-control-prev" href="#carouselExample2Controls" role="button" data-slide="prev">
-                <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
-                <span class="sr-only">Previous</span>
-              </a>
-              <a class="carousel-control-next" href="#carouselExample2Controls" role="button" data-slide="next">
-                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-                <span class="sr-only">Next</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      <Client />
+      
       <section class="info_section layout_padding2">
         <div class="container">
           <div class="row info_form_social_row">
