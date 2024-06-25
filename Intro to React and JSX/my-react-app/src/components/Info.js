@@ -1,4 +1,4 @@
-export default () => {
+function Info() {
     return (
         <section class="info_section layout_padding2">
             <div class="container">
@@ -105,3 +105,5 @@ export default () => {
         </section>
     );
 }
+
+export default Info;
