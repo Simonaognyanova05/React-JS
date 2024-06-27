@@ -5,10 +5,10 @@ function ToDoList() {
             <h2>Tasks</h2>
 
             <ul>
-                <ToDoListItem>Clean</ToDoListItem>
-                <ToDoListItem>Go shopping</ToDoListItem>
-                <ToDoListItem>Learn React</ToDoListItem>
-                <ToDoListItem>Learn React classes</ToDoListItem>
+                <ToDoListItem color="pink">Clean</ToDoListItem>
+                <ToDoListItem color="red">Go shopping</ToDoListItem>
+                <ToDoListItem color="green">Learn React</ToDoListItem>
+                <ToDoListItem color="blue">Learn React classes</ToDoListItem>
             </ul>
         </>
     );
