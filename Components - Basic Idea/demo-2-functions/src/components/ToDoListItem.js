@@ -1,6 +1,6 @@
 function ToDoListItem(props) {
     return (
-        <li>{props.text}</li>
+        <li>{props.children}</li>
 
     );
 }
