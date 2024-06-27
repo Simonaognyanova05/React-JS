@@ -7,6 +7,7 @@ class ToDoList extends React.Component{
             <li>Clean</li>
             <li>Go shopping</li>
             <li>Learn React</li>
+            <li>Learn React classes</li>
           </ul>
         );
     }
