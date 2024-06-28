@@ -10,8 +10,11 @@ function ToDoList() {
             <h2>Tasks</h2>
 
             <ul>
-               <ToDoListItem>{todos}</ToDoListItem>
+                <ToDoListItem>{todos}</ToDoListItem>
             </ul>
+
+            {/* events */}
+            <button onClick={() => console.log(todos)}>Test</button >
         </>
     );
 }
