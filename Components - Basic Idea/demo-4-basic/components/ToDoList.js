@@ -2,9 +2,9 @@ import React from 'react';
 import ToDoListItem from "./ToDoListItem";
 
 function ToDoList() {
-    const todoState = React.useState(['Clean', 'Go shopping', 'Learn React', 'Learn React classes']);
+    let todoState = React.useState(['Clean', 'Go shopping', 'Learn React', 'Learn React classes']);
 
-    const todos = todoState[0];
+    let [todos, setToDo] = todoState;
     return (
         <>
             <h2>Tasks</h2>
