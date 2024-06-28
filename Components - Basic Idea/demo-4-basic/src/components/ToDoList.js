@@ -14,7 +14,7 @@ function ToDoList() {
             </ul>
 
             {/* events */}
-            <button onClick={() => console.log(todos)}>Test</button >
+            <button onClick={() => setToDo('Modified')}>Test</button >
         </>
     );
 }
