@@ -2,7 +2,7 @@ import React from 'react';
 import ToDoListItem from "./ToDoListItem";
 
 function ToDoList() {
-    let todoState = React.useState(['Clean', 'Go shopping', 'Learn React', 'Learn React classes']);
+    let todoState = React.useState('Go shopping');
 
     let [todos, setToDo] = todoState;
     return (
@@ -10,7 +10,7 @@ function ToDoList() {
             <h2>Tasks</h2>
 
             <ul>
-                {todos.map(x => <ToDoListItem>{x}</ToDoListItem>)}
+               <ToDoListItem>{todos}</ToDoListItem>
             </ul>
         </>
     );
