@@ -1,11 +1,11 @@
 function ToDoListItem(props) {
     // if condition
 
+    let color = 'black';
     if (props.children > 0) {
-        return <li style={{ color: 'pink' }}>{props.children}</li>
-    } else {
-        return <li style={{ color: 'blue' }}>{props.children}</li>
+        color = 'red'
     }
+    return <li style={{ color }}>{props.children}</li>
 }
 
 export default ToDoListItem;

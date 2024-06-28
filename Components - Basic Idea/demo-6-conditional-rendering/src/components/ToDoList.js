@@ -13,7 +13,15 @@ function ToDoList() {
     }
     return (
         <>
-            <h2>Counter - {name}</h2>
+            {/* && and || */}
+            {name && <h2>Counter - {name}</h2>}
+            {name || <h2>No name</h2>}
+
+            {/* trnary operatior */}
+            {name == 'Pesho'
+                ? <h3>He is the best!</h3>
+                : <h3>Nah!</h3>
+            }
 
             <ul>
                 <ToDoListItem>{count}</ToDoListItem>
