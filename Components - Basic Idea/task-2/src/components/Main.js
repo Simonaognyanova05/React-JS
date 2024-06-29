@@ -1,15 +1,22 @@
 import React from 'react';
-import Counter from './items/Counter';
+
+function showData() {
+    return (
+        <p>The button is clicked!</p>
+    );
+};
 
 export default function Main() {
-    let countState = React.useState(0);
+    const [show, setShow] = React.useState(false);
 
-    let [count, setCount] = countState;
-
+    const clickedButton = () => {
+        setShow(true);
+    }
     return (
         <main>
-            <Counter>{count}</Counter>
-            <button onClick={() => setCount(count + 1)}>+</button>
+            <button onClick={clickedButton}>Show paragraph!</button>
+            {show && showData()}
         </main>
     );
+
 }
