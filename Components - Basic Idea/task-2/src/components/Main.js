@@ -1,10 +1,5 @@
 import React from 'react';
-
-function showData() {
-    return (
-        <p>The button is clicked!</p>
-    );
-};
+import showData from './items/showData';
 
 export default function Main() {
     const [show, setShow] = React.useState(false);
