@@ -11,7 +11,9 @@ export default function Main() {
     return (
         <main>
             <p>Text - {text}</p>
+            {/* <input type="text" onBlur={addText} /> */}
             <input type="text" onChange={addText} />
+
         </main>
     );
 }
