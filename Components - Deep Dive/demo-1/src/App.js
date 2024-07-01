@@ -7,7 +7,7 @@ function App() {
     <>
       <h1>Unordered list with array</h1>
       <ul>
-        {numbers.map(x => <li>{x}</li>)}
+        {numbers.map((x, i) => <li key={i}>{x}</li>)}
       </ul>
     </>
   );
