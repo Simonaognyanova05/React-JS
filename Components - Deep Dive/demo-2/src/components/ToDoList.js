@@ -1,4 +1,4 @@
-import uniqueid from 'uniqid';
+import TodoItem from "./TodoItem";
 
 export default function ToDoList(){
     const items = [
@@ -9,7 +9,7 @@ export default function ToDoList(){
     return (
 
         <ul>
-            {items.map(x => <li key={x.id}>{x.text}</li>)}
+            {items.map(x => <TodoItem key={x.id} todo={x}/>)}
         </ul>
     );
 }
