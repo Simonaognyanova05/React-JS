@@ -23,11 +23,16 @@ export default function ToDoList() {
             todo
         ])
     }
+
+    const deleteHandler = (id) => {
+        console.log('delete ', id);
+    }
+
     return (
         <>
         <input type='text' name='todo' onBlur={addTodo}/>
             <ul>
-                {todos.map(x => <TodoItem key={x.id} todo={x}/>)}
+                {todos.map(x => <TodoItem key={x.id} id={x.id} todo={x} onDelete={deleteHandler}/>)}
             </ul>
         </>
     );
