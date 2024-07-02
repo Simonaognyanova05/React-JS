@@ -18,8 +18,8 @@ export default function ToDoList() {
             text: e.target.value
         }
 
-        setTodos([
-            ...todos,
+        setTodos(state => [
+            ...state,
             todo
         ])
     }
