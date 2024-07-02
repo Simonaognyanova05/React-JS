@@ -25,7 +25,7 @@ export default function ToDoList() {
     }
 
     const deleteHandler = (id) => {
-        console.log('delete ', id);
+        setTodos(oldTodo => oldTodo.filter(x => x.id != id))
     }
 
     return (
