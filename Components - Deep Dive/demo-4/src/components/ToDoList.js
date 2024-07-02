@@ -1,4 +1,5 @@
 import React from 'react';
+import uniqid from 'uniqid';
 import TodoItem from "./TodoItem";
 
 export default function ToDoList() {
@@ -14,7 +15,7 @@ export default function ToDoList() {
 
     const addTodo = (e) => {
         let todo = {
-            id: todos.length + 1,
+            id: uniqid(),
             text: e.target.value
         }
 
