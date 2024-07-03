@@ -1,6 +1,7 @@
 import React from 'react';
 import uniqid from 'uniqid';
 import TodoItem from './TodoItem';
+import { createTodo } from '../services/todoServices'
 
 const API_URL = 'http://localhost:3030/jsonstore';
 
@@ -26,13 +27,17 @@ export default function ToDoList() {
     const addTodo = (e) => {
         let todo = {
             id: uniqid(),
-            text: e.target.value
+            text: e.target.value,
+            isDone: false,
         }
 
-        setTodos(state => [
-            ...state,
-            todo
-        ])
+        createTodo(todo)
+            .then(res => {
+                setTodos(oldTodos => [
+                    ...oldTodos,
+                    res
+                ])
+            })
     }
 
     return (
