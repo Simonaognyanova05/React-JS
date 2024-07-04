@@ -1,1 +1,2 @@
-Make a todo list where items are loaded from an array via props.
+1. Make a todo list where items are loaded from an array via props.
+2. Put the data in a separate folder.
