@@ -1,0 +1,1 @@
+Make a todo list where items are loaded from an array via props.
