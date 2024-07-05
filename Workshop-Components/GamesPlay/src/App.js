@@ -5,6 +5,7 @@ import WelcomeWorld from "./components/WelcomeWorld";
 import CreatePage from "./components/CreatePage";
 import Login from './components/Login';
 import Register from './components/Register';
+import Error from './components/Error';
 
 function App() {
   let [page, setPage] = useState('/');
@@ -25,7 +26,7 @@ function App() {
       <Header navigationChange={navigationChange} />
 
       <main id="main-content">
-        {routes[page] || <h2>No page found!</h2>}
+        {routes[page] || <Error />}
       </main>
     </div>
   );
