@@ -1,12 +1,12 @@
-import CatalogPage from './CatalogPage';
-
-export default function Header() {
+export default function Header({
+    navigationChange
+}) {
     const headerClick = (e) => {
         e.preventDefault();
 
         if (e.target.tagName == 'A') {
             let url = new URL(e.target.href);
-            console.log(url.pathname);
+            navigationChange(url.pathname)
         }
     }
 
