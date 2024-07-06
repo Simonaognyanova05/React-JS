@@ -14,7 +14,7 @@ export default function Header({
         <header onClick={headerClick}>
             <h1><a className="home" href="#">GamesPlay</a></h1>
             <nav>
-                <a href="/">All games</a>
+                <a href="/catalog">All games</a>
                 <div id="user">
                     <a href="/create-game">Create Game</a>
                     <a href="/logout">Logout</a>
