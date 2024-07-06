@@ -24,7 +24,7 @@ export default function WelcomeWorld() {
                 <h1>Latest Games</h1>
                 {
                     games.length > 0 ?
-                        games.map(x => <LatestGameTemplate game={x}/>)
+                        games.map(x => <LatestGameTemplate game={x} key={x._id}/>)
                         : <p className="no-articles">No games yet</p>
                 }
 
