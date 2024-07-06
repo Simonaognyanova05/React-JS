@@ -11,7 +11,7 @@ export default function CatalogPage() {
             .then(gamesResult => {
                 setGames(gamesResult);
             })
-    })
+    }, [])
     return (
         <section id="catalog-page">
             <h1>All Games</h1>
