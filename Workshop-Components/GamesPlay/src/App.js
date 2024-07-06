@@ -11,16 +11,15 @@ import Error from './components/Error';
 function App() {
   let [page, setPage] = useState('/');
 
+  const navigationChange = (path) => {
+    setPage(path);
+  }
   const routes = {
     '/': <WelcomeWorld />,
     '/create-game': <CreatePage />,
     '/catalog': <CatalogPage />,
     '/login': <Login />,
     '/register': <Register />
-  }
-
-  const navigationChange = (path) => {
-    setPage(path);
   }
 
   return (

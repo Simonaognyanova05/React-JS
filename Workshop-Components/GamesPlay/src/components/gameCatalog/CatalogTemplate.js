@@ -1,5 +1,5 @@
 export default function CatalogTemplate({
-    game
+    game,
 }) {
     return (
         <div className="allGames">
@@ -7,7 +7,6 @@ export default function CatalogTemplate({
                 <img src={game.imageUrl} />
                 <h6>{game.category}</h6>
                 <h2>{game.title}</h2>
-                <a href="#" className="details-button">Details</a>
             </div>
         </div>
     );
