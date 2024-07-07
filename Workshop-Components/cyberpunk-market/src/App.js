@@ -3,7 +3,7 @@ import Home from "./components/Home";
 import Header from "./components/Header";
 import Create from './components/Create';
 import Login from './components/Login';
-import Market from './components/Market';
+import Market from './components/Market/Market';
 import Register from './components/Register';
 import Error from './components/Error';
 
