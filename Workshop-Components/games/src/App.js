@@ -1,14 +1,33 @@
+import { useState } from 'react';
 import Header from "./components/Header";
 import Home from "./components/Home";
+import Catalog from './components/Catalog';
+import CreateGame from './components/CreateGame';
+import Login from './components/Login';
+import Register from './components/Register';
 
 function App() {
+  let [page, setPage] = useState('/');
+
+  const navigationChange = (path) => {
+    setPage(path);
+  }
+
+  const routes = {
+    '/': <Home />,
+    '/create-game': <CreateGame />,
+    '/catalog': <Catalog />,
+    '/login': <Login />,
+    '/register': <Register />
+  }
+
   return (
     <div id="box">
 
-      <Header />
+      <Header navigationChange={navigationChange} />
 
       <main id="main-content">
-        <Home />
+        {routes[page] || <p>Page not found!</p>}
       </main>
     </div>
   );
