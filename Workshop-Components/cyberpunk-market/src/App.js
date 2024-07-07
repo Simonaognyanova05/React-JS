@@ -5,6 +5,7 @@ import Create from './components/Create';
 import Login from './components/Login';
 import Market from './components/Market';
 import Register from './components/Register';
+import Error from './components/Error';
 
 
 function App() {
@@ -26,7 +27,7 @@ function App() {
 
       <main id="main-element">
 
-        {router[page] || <p>Page not found!</p>}
+        {router[page] || <Error />}
       </main>
     </div>
   );
