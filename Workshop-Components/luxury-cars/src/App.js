@@ -6,6 +6,7 @@ import Create from './components/Create';
 import Login from './components/Login';
 import Register from './components/Register';
 import Search from './components/Search';
+import Error from './components/Error';
 
 function App() {
   let [page, setPage] = useState('/');
@@ -27,7 +28,7 @@ function App() {
       <Header headerHandler={headerHandler} />
 
       <main id="main-element">
-        {router[page] || <p>Page not found!</p>}
+        {router[page] || <Error />}
       </main>
     </div>
   );
