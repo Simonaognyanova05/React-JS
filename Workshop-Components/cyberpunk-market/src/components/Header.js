@@ -1,21 +1,33 @@
-export default function Header() {
+export default function Header({
+    headerHandler
+}) {
+
+    const changePage = (e) => {
+        e.preventDefault();
+
+        if (e.target.tagName == 'A') {
+            let url = new URL(e.target.href);
+
+            headerHandler(url.pathname);
+        }
+    }
     return (
-        <header>
-            <a id="logo" href="#">
+        <header onClick={changePage}>
+            <a id="logo" href="/">
                 <img id="logo" src="./images/logo.png" alt="img" /></a>
             <nav>
                 <div>
-                    <a href="#">Market</a>
+                    <a href="/market">Market</a>
                 </div>
 
                 <div className="user">
-                    <a href="#">Sell</a>
-                    <a href="#">Logout</a>
+                    <a href="/sell">Sell</a>
+                    <a href="/logout">Logout</a>
                 </div>
 
                 <div className="guest">
-                    <a href="#">Login</a>
-                    <a href="#">Register</a>
+                    <a href="/login">Login</a>
+                    <a href="/register">Register</a>
                 </div>
             </nav>
         </header>
