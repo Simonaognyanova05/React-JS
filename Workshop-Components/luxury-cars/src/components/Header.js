@@ -1,21 +1,34 @@
-export default function Header() {
-    return (<header>
-        <a id="logo" href="#"><img id="logo-car" src="./images/car-logo.png" alt="img" /></a>
-        <nav>
-            <div>
-                <a href="#">Our Cars</a>
-                <a href="#">Search</a>
-            </div>
+export default function Header({
+    headerHandler
+}) {
+    const clickHeader = (e) => {
+        e.preventDefault();
 
-            <div class="user">
-                <a href="#">Add Your Car</a>
-                <a href="#">Logout</a>
-            </div>
+        if (e.target.tagName == 'A') {
+            let url = new URL(e.target.href);
 
-            <div class="guest">
-                <a href="#">Login</a>
-                <a href="#">Register</a>
-            </div>
-        </nav>
-    </header>)
+            headerHandler(url.pathname);
+        }
+    }
+    return (
+        <header onClick={clickHeader}>
+            <a id="logo" href="/"><img id="logo-car" src="./images/car-logo.png" alt="img" /></a>
+            <nav>
+                <div>
+                    <a href="/catalog">Our Cars</a>
+                    <a href="/search">Search</a>
+                </div>
+
+                <div class="user">
+                    <a href="/create">Add Your Car</a>
+                    <a href="/logout">Logout</a>
+                </div>
+
+                <div class="guest">
+                    <a href="/login">Login</a>
+                    <a href="/register">Register</a>
+                </div>
+            </nav>
+        </header>
+    )
 }
