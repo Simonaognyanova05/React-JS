@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Header from "./components/Header";
-import Home from "./components/Home";
+import Home from "./components/homePage/Home";
 import Catalog from './components/catalog/Catalog';
 import CreateGame from './components/CreateGame';
 import Login from './components/Login';
