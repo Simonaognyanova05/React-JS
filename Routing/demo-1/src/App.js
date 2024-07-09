@@ -15,8 +15,12 @@ function App() {
         <Route path="/catalog" component={Catalog} />
         <Route path="/about" component={About} />
         <Route path="/contact" component={Contact} />
-        <Route path="/games/:gameId" component={Details} />
+        <Route path="/contact" component={Contact} />
 
+        <Route path="/games/:gameId" component={Details} />
+        <Route path="/custom">
+          <h2>Custom page</h2>
+        </Route>
       </Switch>
 
     </div>
