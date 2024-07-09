@@ -5,6 +5,7 @@ import About from './components/About';
 import Contact from './components/Contact';
 import Catalog from './components/Catalog';
 import Details from './components/Details';
+import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 
 function App() {
   return (
@@ -21,6 +22,14 @@ function App() {
         <Route path="/custom">
           <h2>Custom page</h2>
         </Route>
+
+
+        <Route path="/logout" render={() => {
+          console.log('Logged out!');
+
+          return <Redirect to="/" />
+        }} />
+
       </Switch>
 
     </div>

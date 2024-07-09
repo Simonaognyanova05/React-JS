@@ -6,6 +6,7 @@ export default function Header() {
             <li><Link to="/catalog">Catalog</Link></li>
             <li><Link to="/about">About Us</Link></li>
             <li><Link to="/contact">Contact Us</Link></li>
+            <li><Link to="/logout">Logout</Link></li>
 
         </ul>
     );
