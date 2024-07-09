@@ -7,7 +7,7 @@ export default function Header() {
     return (
         <ul>
             <li><NavLink activeStyle={activeStyle} to="/catalog">Catalog</NavLink></li>
-            <li><NavLink activeStyle={activeStyle} to="/about">About Us</NavLink></li>
+            <li><NavLink activeStyle={{textDecoration: 'none'}} to="/about">About Us</NavLink></li>
             <li><NavLink activeStyle={activeStyle} to="/contact">Contact Us</NavLink></li>
             <li><NavLink activeStyle={activeStyle} to="/logout">Logout</NavLink></li>
         </ul>
