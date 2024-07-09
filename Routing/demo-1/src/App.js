@@ -5,7 +5,7 @@ import About from './components/About';
 import Contact from './components/Contact';
 import Catalog from './components/Catalog';
 import Details from './components/Details';
-import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
+import { Redirect } from 'react-router-dom';
 
 function App() {
   return (

@@ -1,13 +1,15 @@
-import { Link } from 'react-router-dom';
-
+import { Link, NavLink } from 'react-router-dom';
 export default function Header() {
+    let activeStyle = {
+        backgroundColor: 'orange',
+        fontSize: '25px'
+    }
     return (
         <ul>
-            <li><Link to="/catalog">Catalog</Link></li>
-            <li><Link to="/about">About Us</Link></li>
-            <li><Link to="/contact">Contact Us</Link></li>
-            <li><Link to="/logout">Logout</Link></li>
-
+            <li><NavLink activeStyle={activeStyle} to="/catalog">Catalog</NavLink></li>
+            <li><NavLink activeStyle={activeStyle} to="/about">About Us</NavLink></li>
+            <li><NavLink activeStyle={activeStyle} to="/contact">Contact Us</NavLink></li>
+            <li><NavLink activeStyle={activeStyle} to="/logout">Logout</NavLink></li>
         </ul>
     );
 }
