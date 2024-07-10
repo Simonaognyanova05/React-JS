@@ -1,9 +1,9 @@
 export default function Create() {
     return (
         <section id="create">
-            <div class="form form-auto">
+            <div className="form form-auto">
                 <h2>Share Your Car</h2>
-                <form class="create-form">
+                <form className="create-form">
                     <input type="text" name="model" id="model" placeholder="Model" />
                     <input
                         type="text"

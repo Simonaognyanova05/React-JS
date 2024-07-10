@@ -6,9 +6,9 @@ export default function Details() {
                 <p id="details-title">Pagani Huayra</p>
                 <div id="info-wrapper">
                     <div id="details-description">
-                        <p class="price">Price: €1,010,310</p>
-                        <p class="weight">Weight: 1350 kg</p>
-                        <p class="top-speed">Top Speed: 360 kph</p>
+                        <p className="price">Price: €1,010,310</p>
+                        <p className="weight">Weight: 1350 kg</p>
+                        <p className="top-speed">Top Speed: 360 kph</p>
                         <p id="car-description">
                             The Pagani Huayra is a breathtaking hypercar that seamlessly
                             blends art and engineering, representing the epitome of

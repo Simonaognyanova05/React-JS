@@ -1,9 +1,9 @@
 export default function Login() {
     return (
         <section id="login">
-            <div class="form">
+            <div className="form">
                 <h2>Login</h2>
-                <form class="login-form">
+                <form className="login-form">
                     <input type="text" name="email" id="email" placeholder="email" />
                     <input
                         type="password"
@@ -12,7 +12,7 @@ export default function Login() {
                         placeholder="password"
                     />
                     <button type="submit">login</button>
-                    <p class="message">
+                    <p className="message">
                         Not registered? <a href="#">Create an account</a>
                     </p>
                 </form>

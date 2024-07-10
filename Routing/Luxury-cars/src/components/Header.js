@@ -10,12 +10,12 @@ export default function Header() {
                     <Link to="/search">Search</Link>
                 </div>
 
-                <div class="user">
+                <div className="user">
                     <Link to="/create">Add Your Car</Link>
                     <Link to="/logout">Logout</Link>
                 </div>
 
-                <div class="guest">
+                <div className="guest">
                     <Link to="/login">Login</Link>
                     <Link to="/register">Register</Link>
                 </div>
