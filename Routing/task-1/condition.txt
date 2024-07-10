@@ -1,0 +1,5 @@
+Rotate pages
+- Use Switch
+- Use Link To
+- Use parameters
+- Use Redirect
