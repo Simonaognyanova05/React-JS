@@ -7,7 +7,7 @@ export default function GameCard({
                 <div className="card-body">
                     <h5 className="card-title">{game.category}</h5>
                     <p className="card-text">{game.title}</p>
-                    <a href="#" className="btn btn-primary">Go somewhere</a>
+                    <a href={`/games/${game._id}`} className="btn btn-primary">Go somewhere</a>
                 </div>
         </div>
     );
