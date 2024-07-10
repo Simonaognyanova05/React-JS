@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function CatalogCard({
     car
 }) {
@@ -10,7 +12,7 @@ export default function CatalogCard({
                 <p className="weight">Weight: {car.weight} kg</p>
                 <p className="top-speed">Top Speed: {car.speed} kph</p>
             </div>
-            <a className="details-btn" href="#">More Info</a>
+            <Link className="details-btn" to={`/details/${car._id}`}>More Info</Link>
         </div>
     );
 }
