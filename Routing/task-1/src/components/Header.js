@@ -7,6 +7,8 @@ export default function Header() {
             <li><Link to="/catalog">Catalog</Link></li>
             <li><Link to="/contacts">Contact Us</Link></li>
             <li><Link to="/about">About Us</Link></li>
+            <li><Link to="/logout">Log out</Link></li>
+
         </ul>
     )
 }
