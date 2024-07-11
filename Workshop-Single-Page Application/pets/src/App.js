@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import Header from "./components/Header";
 import Create from './components/Create';
-import Dashboard from './components/Dashboard';
+import Dashboard from './components/Dashboard/Dashboard';
 import Details from './components/Details';
 import Edit from './components/Edit';
 import Login from './components/Login';
