@@ -1,19 +1,21 @@
+import { Link } from 'react-router-dom';
+
 export default function Header() {
     return (
         <header id="site-header">
             <nav className="navbar">
                 <section className="navbar-dashboard">
-                    <a href="#">Dashboard</a>
+                    <Link to="/">Dashboard</Link>
 
                     <div id="guest">
-                        <a className="button" href="#">Login</a>
-                        <a className="button" href="#">Register</a>
+                        <Link className="button" to="/login">Login</Link>
+                        <Link className="button" to="/register">Register</Link>
                     </div>
                     <div id="user">
                         <span>Welcome, email</span>
-                        <a className="button" href="#">My Books</a>
-                        <a className="button" href="#">Add Book</a>
-                        <a className="button" href="#">Logout</a>
+                        <Link className="button" to="/my-books">My Books</Link>
+                        <Link className="button" to="/create">Add Book</Link>
+                        <Link className="button" to="#">Logout</Link>
                     </div>
                 </section>
             </nav>
