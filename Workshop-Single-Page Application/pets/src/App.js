@@ -18,7 +18,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Dashboard />} />
           <Route path='/create' element={<Create />} />
-          <Route path='/details' element={<Details />} />
+          <Route path='/details/:bookId' element={<Details />} />
           <Route path='/edit' element={<Edit />} />
           <Route path='/login' element={<Login />} />
           <Route path='/my-books' element={<MyBooks />} />

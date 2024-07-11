@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function BookCard({
     book
 }) {
@@ -6,7 +8,7 @@ export default function BookCard({
             <h3>{book.title}</h3>
             <p>Type: {book.type}</p>
             <p className="img"><img src={book.imageUrl} /></p>
-            <a className="button" href="#">Details</a>
+            <Link className="button" to={`/details/${book._id}`}>Details</Link>
         </li>
     );
 }
