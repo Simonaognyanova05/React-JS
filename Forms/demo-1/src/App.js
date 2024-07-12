@@ -4,8 +4,9 @@ function App() {
 
     let formData = new FormData(e.currentTarget);
 
-    let username = formData.get('username');
-    let password = formData.get('password');
+    let {username, password} = Object.fromEntries(formData);
+    // let username = formData.get('username');
+    // let password = formData.get('password');
 
 
     console.log(username);
