@@ -1,12 +1,22 @@
+import { useState } from "react";
+
 function App() {
+
+  let [valid, setValid] = useState(false);
 
   const getFormData = (e) => {
     e.preventDefault();
 
     let formData = new FormData(e.currentTarget);
 
-    console.log(formData.get('username'));
-    console.log(formData.get('password'));
+    let username = formData.get('username');
+    let password = formData.get('password');
+
+    if (username.length < 3) {
+      setValid(false);
+    } else {
+      setValid(true);
+    }
   };
 
   return (
@@ -15,6 +25,7 @@ function App() {
         <div>
           <label htmlFor="username">Username</label>
           <input type="text" name="username" id="username" />
+          <p>{valid ? 'Username is valid' : 'Username is invalid'}</p>
         </div>
 
         <div>
