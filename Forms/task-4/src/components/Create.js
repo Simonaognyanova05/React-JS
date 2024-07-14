@@ -1,4 +1,5 @@
 import { Redirect } from 'react-router-dom';
+import { createCar } from '../services/createCar';
 
 export default function Create() {
     const createCarHandler = (e) => {
@@ -7,14 +8,11 @@ export default function Create() {
         let formData = new FormData(e.currentTarget);
         let { model, imageUrl, price, weight, speed, about } = Object.fromEntries(formData);
 
-        fetch('http://localhost:3030/jsonstore/myCars', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ model, imageUrl, price, weight, speed, about })
-        })
-            .then(res => res.json())
+        createCar(model, imageUrl, price, weight, speed, about)
+            .then(() => {
+                <Redirect to="/" />
+            })
+
 
         console.log('submit');
     }
