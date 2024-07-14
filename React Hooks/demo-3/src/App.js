@@ -1,23 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import {useState, useEffect} from 'react';
 
 function App() {
+  let [text, setText] = useState('');
+  let [info, setInfo] = useState({
+    name: 'Peter',
+    age: 30,
+    hobbies: ['first', 'second', 'third']
+  })
+
+  
+  useEffect(() => {
+    setTimeout(() => {
+      setInfo(state => ({
+        ...state,
+        name: 'sss',
+        age: 19
+      }))
+    }, 2000)
+  }, [text])
+
+  const changeText = (e) => {
+    e.preventDefault();
+
+    setText(e.currentTarget);
+  }
+ 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <input type='text' onChange={changeText}/>
+      <p>{info.name} - {info.age}</p>
+      <ul>
+        {info.hobbies.map(x => <li>{x}</li>)}
+      </ul>
     </div>
   );
 }
