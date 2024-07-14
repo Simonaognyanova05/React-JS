@@ -1,25 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
 
-function App() {
+const CarPriceForm = () => {
+  const [selectedCar, setSelectedCar] = useState('');
+  const [price, setPrice] = useState('');
+
+  const handleCarChange = (e) => {
+    const car = e.target.value;
+    setSelectedCar(car);
+    let carPrice;
+
+    switch (car) {
+      case 'BMW':
+        carPrice = '40 000';
+        break;
+      case 'Mercedes':
+        carPrice = '50 000';
+        break;
+      case 'Audi':
+        carPrice = '45 000';
+        break;
+      default:
+        carPrice = '';
+    }
+
+    setPrice(carPrice);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Car Price Form</h1>
+      <form>
+        <label>
+          Select a car:
+          <select value={selectedCar} onChange={handleCarChange}>
+            <option value="">Select...</option>
+            <option value="BMW">BMW</option>
+            <option value="Mercedes">Mercedes</option>
+            <option value="Audi">Audi</option>
+          </select>
+        </label>
+      </form>
+      {price && <p>The price of the selected car is: {price}</p>}
     </div>
   );
-}
+};
 
-export default App;
+export default CarPriceForm;
