@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Counter from './components/Counter';
 
 function App() {
   let [count, setCount] = useState(0);
@@ -11,12 +12,7 @@ function App() {
   return (
     <div className="App">
       <>
-        <h3>Counter</h3>
-        {count > 10
-          ? <p style={{ color: 'red' }}>{count}</p>
-          : <p style={{ color: 'blue' }}>{count}</p>
-        }
-
+        <Counter count={count} />
         <button onClick={countHandler}>+</button>
       </>
     </div>
