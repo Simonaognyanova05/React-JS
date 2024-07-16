@@ -1,15 +1,24 @@
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../contexts/AuthContext';
 
-export default function Header({
-    email
-}) {
+export default function Header() {
+
+    let { user } = useContext(AuthContext);
     return (
         <nav>
             <ul>
                 <li><Link to='/'>Home</Link></li>
-                <li><Link to='/Login'>Login</Link></li>
+                {user.email
+                    ? <>
+                        <p>{user.email}</p>
+                        <li><Link to='/logout'>Logout</Link></li>
+                    </>
+
+                    : <li><Link to='/login'>Login</Link></li>}
+
             </ul>
-<p>{email}</p>
+
         </nav>
     );
 }
