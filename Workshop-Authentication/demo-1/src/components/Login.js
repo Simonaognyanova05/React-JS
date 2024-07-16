@@ -1,6 +1,8 @@
+import { useNavigate } from "react-router-dom";
 import { login } from "../services/login";
 
 export default function Login() {
+    const navigate = useNavigate();
 
     const submitHandler = (e) => {
         e.preventDefault();
@@ -11,6 +13,7 @@ export default function Login() {
         login(email, password)
             .then(res => {
                 console.log(res);
+                navigate('/');
             })
             .catch(err => {
                 console.log(err);
