@@ -1,6 +1,26 @@
+import { useNavigate } from "react-router-dom";
+import { login } from "../services/login";
+
 export default function Login() {
+    const navigate = useNavigate();
+
+    const submitHandler = (e) => {
+        e.preventDefault();
+
+        let formData = new FormData(e.currentTarget);
+        let { email, password } = Object.fromEntries(formData);
+
+        login(email, password)
+            .then(res => {
+                navigate('/');
+            })
+            .catch(err => {
+                console.log(err);
+            })
+
+    }
     return (
-        <form>
+        <form onSubmit={submitHandler}>
             <div>
                 <label htmlFor="email">Email: </label>
                 <input type="text" name="email" id="email" />
