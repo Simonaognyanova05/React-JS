@@ -11,7 +11,11 @@ export default function Header() {
                 <li><Link to="/">Home</Link></li>
 
                 {user.email
-                    ? <li><Link to="/catalog">Catalog</Link></li>
+                    ?
+                    <>
+                        <li><Link to="/catalog">Catalog</Link></li>
+                        <p>{user.email}</p>
+                    </>
                     : <li><Link to="/login">Login</Link></li>}
 
             </ul>
