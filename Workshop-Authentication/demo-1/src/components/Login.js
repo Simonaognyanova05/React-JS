@@ -1,7 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import { login } from "../services/login";
 
-export default function Login() {
+export default function Login({
+    onLogin
+}) {
     const navigate = useNavigate();
 
     const submitHandler = (e) => {
@@ -12,7 +14,7 @@ export default function Login() {
 
         login(email, password)
             .then(res => {
-                console.log(res);
+                onLogin(res);
                 navigate('/');
             })
             .catch(err => {
