@@ -1,16 +1,12 @@
-import { useState, useEffect } from "react";
+import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { login } from "../services/login";
+import { AuthContext } from '../contexts/AuthContext';
 
 export default function Login() {
     let navigate = useNavigate();
-
-    let [user, setUser] = useState({
-        _id: '',
-        email: '',
-        accessToken: ''
-    });
-
+    let {onLogin} = useContext(AuthContext);
+    
 
     const loginHandler = async (e) => {
         e.preventDefault();
@@ -21,7 +17,7 @@ export default function Login() {
         let user = await login(email, password);
 
         if(user){
-            setUser(user);
+            onLogin(user);
             navigate('/');
         }
     }

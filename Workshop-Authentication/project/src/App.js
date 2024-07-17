@@ -1,4 +1,6 @@
+import { useState, useEffect, Provider } from "react";
 import { Routes, Route } from "react-router-dom";
+import { AuthContext } from "./contexts/AuthContext";
 import Header from "./components/Header";
 import Create from "./components/Create";
 import Details from "./components/Details";
@@ -10,25 +12,38 @@ import Solutions from "./components/Solutions";
 import Footer from "./components/Footer";
 
 function App() {
-  return (
-    <>
-      <div id="wrapper">
-        <Header />
+  let [user, setUser] = useState({
+    _id: '',
+    email: '',
+    accessToken: ''
+  });
 
-        <main>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/create" element={<Create />} />
-            <Route path="/details" element={<Details />} />
-            <Route path="/edit" element={<Edit />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/solutions" element={<Solutions />} />
-          </Routes>
-        </main>
-      </div>
-      <Footer />
-    </>
+  const onLogin = (authData) => {
+    setUser(authData);
+  }
+
+
+  return (
+    <AuthContext.Provider value={{user, onLogin}}>
+      <>
+        <div id="wrapper">
+          <Header />
+
+          <main>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/create" element={<Create />} />
+              <Route path="/details" element={<Details />} />
+              <Route path="/edit" element={<Edit />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/solutions" element={<Solutions />} />
+            </Routes>
+          </main>
+        </div>
+        <Footer />
+      </>
+    </AuthContext.Provider>
   );
 }
 
