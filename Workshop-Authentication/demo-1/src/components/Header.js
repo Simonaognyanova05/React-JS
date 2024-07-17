@@ -13,6 +13,8 @@ export default function Header() {
                     ? <>
                         <p>{user.email}</p>
                         <li><Link to='/logout'>Logout</Link></li>
+                        <li><Link to='/create'>Create</Link></li>
+                        <li><Link to='/pets'>All pets</Link></li>
                     </>
 
                     : <li><Link to='/login'>Login</Link></li>}

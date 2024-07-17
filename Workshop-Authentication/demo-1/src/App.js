@@ -5,6 +5,8 @@ import Login from "./components/Login";
 import Header from "./components/Header";
 import Home from './components/Home';
 import Logout from './components/Logout';
+import Create from './components/Create';
+import Pets from './components/Pets';
 
 function App() {
   let [user, setUser] = useState({
@@ -27,6 +29,10 @@ function App() {
 
           <Route path='/login' element={<Login />} />
           <Route path='/logout' element={<Logout />} />
+          <Route path='/create' element={<Create />} />
+          <Route path='/pets' element={<Pets />} />
+
+
 
         </Routes>
       </div>
