@@ -12,29 +12,30 @@ export default function Login() {
     });
 
 
-    const loginHandler = (e) => {
+    const loginHandler = async (e) => {
         e.preventDefault();
 
         let formData = new FormData(e.currentTarget);
         let { email, password } = Object.fromEntries(formData);
 
-        login(email, password)
-            .then(res => {
-                setUser(res);
-                navigate('/');
-            })
+        let user = await login(email, password);
+
+        if(user){
+            setUser(user);
+            navigate('/');
+        }
     }
-    
+
     return (
         <section id="login">
-            <div class="form">
-                <img class="border" src="./images/border.png" alt="" />
+            <div className="form">
+                <img className="border" src="./images/border.png" alt="" />
                 <h2>Login</h2>
-                <form class="login-form" onSubmit={loginHandler}>
+                <form className="login-form" onSubmit={loginHandler}>
                     <input type="text" name="email" id="email" placeholder="email" />
                     <input type="password" name="password" id="password" placeholder="password" />
                     <button type="submit">login</button>
-                    <p class="message">Not registered? <a href="#">Create an account</a></p>
+                    <p className="message">Not registered? <a href="#">Create an account</a></p>
                 </form>
             </div>
         </section>
