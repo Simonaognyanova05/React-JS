@@ -6,7 +6,7 @@ import Header from "./components/Header";
 import Home from './components/Home';
 import Logout from './components/Logout';
 import Create from './components/Create';
-import Pets from './components/Pets';
+import Pets from './components/pets/Pets';
 
 function App() {
   let [user, setUser] = useState({
