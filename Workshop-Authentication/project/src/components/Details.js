@@ -1,36 +1,49 @@
+import { useParams } from "react-router-dom";
+import { useEffect, useState, useContext } from "react";
+import { getDetails } from "../services/getDetails";
+import { AuthContext } from "../contexts/AuthContext";
+
+
 export default function Details() {
+    let { user } = useContext(AuthContext);
+    let { solutionId } = useParams();
+    let [details, setDetails] = useState([]);
+
+    useEffect(() => {
+        getDetails(solutionId)
+            .then(res => {
+                console.log(res);
+                setDetails(res);
+            })
+    }, [])
+
     return (
         <section id="details">
             <div id="details-wrapper">
-                <img id="details-img" src="./images/Bioremediation.png" alt="example1"/>
+                <img id="details-img" src={details.imageUrl} alt="example1" />
                 <div>
-                    <p id="details-type">Bioremediation</p>
+                    <p id="details-type">{details.type}</p>
                     <div id="info-wrapper">
                         <div id="details-description">
                             <p id="description">
-                                Synthetic biology involves the design and construction of
-                                biological systems for useful purposes.
+                                {details.description}
                             </p>
                             <p id="more-info">
-                                In the realm of environmental cleanup, synthetic biology can
-                                be employed to engineer microorganisms capable of degrading
-                                toxic pollutants. By introducing synthetic genes into
-                                bacteria or fungi, researchers can enhance their ability to
-                                break down pollutants such as hydrocarbons, pesticides, and
-                                industrial chemicals. These engineered microorganisms can be
-                                deployed in contaminated sites to accelerate the natural
-                                biodegradation process, offering a cost-effective and
-                                sustainable solution to environmental pollution.
+                                {details.learnMore}
                             </p>
                         </div>
                     </div>
                     <h3>Like Solution:<span id="like">0</span></h3>
 
                     <div id="action-buttons">
-                        <a href="#" id="edit-btn">Edit</a>
-                        <a href="#" id="delete-btn">Delete</a>
-
-                        <a href="#" id="like-btn">Like</a>
+                        {user._id === details._ownerId
+                            ?
+                            <>
+                                <a href="#" id="edit-btn">Edit</a>
+                                <a href="#" id="delete-btn">Delete</a>
+                            </>
+                            : <a href="#" id="like-btn">Like</a>
+                        }
                     </div>
                 </div>
             </div>

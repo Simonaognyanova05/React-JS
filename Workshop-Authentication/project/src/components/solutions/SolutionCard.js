@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function SolutionCard({
     value
 }) {
@@ -10,7 +12,7 @@ export default function SolutionCard({
                 <p className="description">
                     {value.description}
                 </p>
-                <a className="details-btn" href="/details">Learn More</a>
+                <Link className="details-btn" to={`/details/${value._id}`}>Learn More</Link>
             </div>
         </div>
     );
