@@ -17,11 +17,15 @@ export default function Solutions() {
         <>
             <h2>Solutions</h2>
             <section id="solutions">
-                {solutionState.map(x => (
-                    <SolutionCard value={x}/>
-                ))}
+                {solutionState.length > 0
+                    ?
+                    solutionState.map(x => (
+                        <SolutionCard value={x} />
+                    ))
+                    : <h2 id="no-solution">No Solutions Added.</h2>
+                }
             </section>
-            <h2 id="no-solution">No Solutions Added.</h2>
+
         </>
     );
 }
