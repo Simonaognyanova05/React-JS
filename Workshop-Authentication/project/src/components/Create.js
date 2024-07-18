@@ -1,8 +1,10 @@
 import { useContext } from "react";
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthContext';
 import { createSolution } from "../services/createSolution";
 
 export default function Create() {
+    let navigate = useNavigate();
     let { user } = useContext(AuthContext);
 
     const createHandler = (e) => {
@@ -12,9 +14,9 @@ export default function Create() {
         let { type, imageUrl, description, learnMore } = Object.fromEntries(formData);
 
         createSolution(type, imageUrl, description, learnMore, user.accessToken)
-        .then(res => {
-            console.log(res);
-        })
+            .then(res => {
+                navigate('/solutions')
+            })
     }
     return (
         <section id="create">
