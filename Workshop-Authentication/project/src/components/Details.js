@@ -1,21 +1,19 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
 import { getDetails } from "../services/getDetails";
 import { AuthContext } from "../contexts/AuthContext";
 
-
 export default function Details() {
-    let { user } = useContext(AuthContext);
     let { solutionId } = useParams();
     let [details, setDetails] = useState([]);
+    let { user } = useContext(AuthContext);
 
     useEffect(() => {
         getDetails(solutionId)
             .then(res => {
-                console.log(res);
                 setDetails(res);
-            })
-    }, [])
+            });
+    }, [solutionId]);
 
     return (
         <section id="details">
@@ -37,12 +35,13 @@ export default function Details() {
 
                     <div id="action-buttons">
                         {user._id === details._ownerId
-                            ?
-                            <>
-                                <a href="#" id="edit-btn">Edit</a>
-                                <a href="#" id="delete-btn">Delete</a>
-                            </>
-                            : <a href="#" id="like-btn">Like</a>
+                            ? (
+                                <>
+                                    <Link to={`/edit/${details._id}`} id="edit-btn">Edit</Link>
+                                    <Link to="#" id="delete-btn">Delete</Link>
+                                </>
+                            )
+                            : <Link to="#" id="like-btn">Like</Link>
                         }
                     </div>
                 </div>
