@@ -8,7 +8,8 @@ import Edit from "./components/Edit";
 import Home from "./components/Home";
 import Login from "./components/Login";
 import Register from "./components/Register";
-import Solutions from "./components/Solutions";
+import Solutions from "./components/solutions/Solutions";
+import Logout from "./components/Logout";
 import Footer from "./components/Footer";
 
 function App() {
@@ -28,7 +29,7 @@ function App() {
 
 
   return (
-    <AuthContext.Provider value={{user, onLogin, onRegister}}>
+    <AuthContext.Provider value={{ user, onLogin, onRegister }}>
       <>
         <div id="wrapper">
           <Header />
@@ -42,6 +43,8 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/solutions" element={<Solutions />} />
+              <Route path="/logout" element={<Logout />} />
+
             </Routes>
           </main>
         </div>
