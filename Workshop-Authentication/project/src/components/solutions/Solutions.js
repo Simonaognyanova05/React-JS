@@ -20,7 +20,7 @@ export default function Solutions() {
                 {solutionState.length > 0
                     ?
                     solutionState.map(x => (
-                        <SolutionCard value={x} />
+                        <SolutionCard key={x._id} value={x} />
                     ))
                     : <h2 id="no-solution">No Solutions Added.</h2>
                 }

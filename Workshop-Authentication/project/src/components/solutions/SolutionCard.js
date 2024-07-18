@@ -3,14 +3,14 @@ export default function SolutionCard({
 }) {
 
     return (
-        <div class="solution">
+        <div className="solution">
             <img src={value.imageUrl} alt="example3" />
-            <div class="solution-info">
-                <h3 class="type">{value.type}</h3>
-                <p class="description">
+            <div className="solution-info">
+                <h3 className="type">{value.type}</h3>
+                <p className="description">
                     {value.description}
                 </p>
-                <a class="details-btn" href="/details">Learn More</a>
+                <a className="details-btn" href="/details">Learn More</a>
             </div>
         </div>
     );
