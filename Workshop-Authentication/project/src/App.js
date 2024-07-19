@@ -47,7 +47,6 @@ function App() {
               <Route path="/logout" element={<Logout />} />
               <Route path="/delete" element={<Delete />} />
 
-
             </Routes>
           </main>
         </div>

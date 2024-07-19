@@ -46,7 +46,7 @@ export default function Details() {
                         {user._id === details._ownerId
                             ? (
                                 <>
-                                    <Link to="#" id="edit-btn">Edit</Link>
+                                    <Link to={`/edit/${details._id}`} id="edit-btn">Edit</Link>
                                     <Link to="/delete" id="delete-btn" onClick={deleteHadnler}>Delete</Link>
                                 </>
                             )
@@ -58,3 +58,4 @@ export default function Details() {
         </section>
     );
 }
+
