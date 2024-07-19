@@ -9,6 +9,7 @@ import Edit from "./components/Edit";
 import Home from "./components/Home";
 import Login from "./components/Login";
 import Register from "./components/Register";
+import Logout from './components/Logout';
 import Footer from "./components/Footer";
 
 
@@ -28,11 +29,14 @@ function App() {
   const onRegister = (authData) => {
     setUser(authData);
   }
+  const onLogout = () => {
+    setUser(initialState);
+  }
 
 
   return (
     <>
-      <AuthContext.Provider value={{ user, onLogin, onRegister }}>
+      <AuthContext.Provider value={{ user, onLogin, onRegister, onLogout }}>
         <div id="wrapper">
           <Header />
 
@@ -44,6 +48,7 @@ function App() {
               <Route path='/details' element={<Details />} />
               <Route path='/edit' element={<Edit />} />
               <Route path='/login' element={<Login />} />
+              <Route path='/logout' element={<Logout />} />
               <Route path='/register' element={<Register />} />
             </Routes>
           </main>

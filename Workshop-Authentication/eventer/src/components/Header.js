@@ -15,7 +15,7 @@ export default function Header() {
     const loggedUser = (
         <div class="user">
             <Link to="/create">Add Event</Link>
-            <Link to="#">Logout</Link>
+            <Link to="/logout">Logout</Link>
         </div>
     );
 
