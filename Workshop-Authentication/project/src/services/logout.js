@@ -1,7 +1,10 @@
-export async function logout() {
-    let request = await fetch('http://localhost:3030/users/logout');
+export async function logout(token) {
+    let result = await fetch(`http://localhost:3030/users/logout`, {
+        headers: {
+            'X-Authorization': token,
+            'Content-Type': 'application/json',
+        }
+    });
 
-    let res = await request.json();
-
-    return res;
-} 
+    return result;
+};

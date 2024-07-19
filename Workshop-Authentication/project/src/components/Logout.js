@@ -1,22 +1,19 @@
-import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { logout } from '../services/logout';
+import { useNavigate } from "react-router-dom";
+import { logout } from "../services/logout";
+import { AuthContext } from "../contexts/AuthContext";
+import { useEffect, useContext } from "react";
 
 export default function Logout() {
     const navigate = useNavigate();
-
+    const { user, onLogout } = useContext(AuthContext);
     useEffect(() => {
-        const performLogout = async () => {
-            await logout();
-            navigate('/');
-        };
+        logout(user.accessToken)
+            .then(() => {
+                navigate('/');
+            })
+    }, [])
+    //logout request
+    onLogout();
 
-        performLogout();
-    }, [navigate]);
-
-    return (
-        <div>
-            Logging out...
-        </div>
-    );
+    return null;
 }

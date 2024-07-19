@@ -13,12 +13,15 @@ import Logout from "./components/Logout";
 import Delete from "./components/Delete";
 import Footer from "./components/Footer";
 
+
+const initialUserState = {
+  _id: '',
+  email: '',
+  accessToken: ''
+};
+
 function App() {
-  let [user, setUser] = useState({
-    _id: '',
-    email: '',
-    accessToken: ''
-  });
+  let [user, setUser] = useState(initialUserState);
 
   const onLogin = (authData) => {
     setUser(authData);
@@ -28,9 +31,13 @@ function App() {
     setUser(authData)
   }
 
+  const onLogout = () => {
+    setUser(initialUserState);
+  };
+
 
   return (
-    <AuthContext.Provider value={{ user, onLogin, onRegister }}>
+    <AuthContext.Provider value={{ user, onLogin, onRegister, onLogout }}>
       <>
         <div id="wrapper">
           <Header />
