@@ -24,11 +24,15 @@ function App() {
 
   const onLogin = (authData) => {
     setUser(authData);
-  } 
+  }
+  const onRegister = (authData) => {
+    setUser(authData);
+  }
+
 
   return (
     <>
-      <AuthContext.Provider value={{user, onLogin}}>
+      <AuthContext.Provider value={{ user, onLogin, onRegister }}>
         <div id="wrapper">
           <Header />
 
