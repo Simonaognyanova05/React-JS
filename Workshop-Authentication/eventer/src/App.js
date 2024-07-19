@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { AuthContext } from './contexts/AuthContext';
 import Header from "./components/Header";
 import Create from "./components/Create";
-import Dashboard from "./components/Dashboard";
+import Dashboard from "./components/events/Dashboard";
 import Details from "./components/Details";
 import Edit from "./components/Edit";
 import Home from "./components/Home";
