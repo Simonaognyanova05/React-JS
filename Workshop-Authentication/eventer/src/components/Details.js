@@ -1,20 +1,31 @@
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { getDetails } from "../services/getDetails";
+
 export default function Details() {
+    const { eventId } = useParams();
+
+    let [event, setEvent] = useState([]);
+
+    useEffect(() => {
+        getDetails(eventId)
+            .then(res => {
+                setEvent(res);
+            })
+    }, [])
     return (
         <section id="details">
             <div id="details-wrapper">
-                <img id="details-img" src="./images/large_deniroparty_marquee.jpg" alt="example1" />
-                <p id="details-title">Robert De Niro Themed Party</p>
+                <img id="details-img" src={event.imageUrl} alt="example1" />
+                <p id="details-title">{event.name}</p>
                 <p id="details-category">
-                    Category: <span id="categories">Fun</span>
+                    Category: <span id="categories">{event.category}</span>
                 </p>
                 <p id="details-date">
-                    Date:<span id="date">15.04.2023 from 17:00</span></p>
+                    Date:<span id="date">{event.date}</span></p>
                 <div id="info-wrapper">
                     <div id="details-description">
-                        <span
-                        >Welcome to the ultimate Robert De Niro themed party! If you're a fan of this legendary actor's films and characters, then this is the party for you.
-                            Entertainment can include a De Niro movie trivia game, a dance-off to classic songs from his films, and even an impression contest where guests can try their best De Niro impressions.
-                            End the night with a screening of one of De Niro's greatest films, followed by a toast to the man himself. Your guests will be talking about this unforgettable party for years to come!</span>
+                        <span>{event.description}</span>
                     </div>
 
                 </div>

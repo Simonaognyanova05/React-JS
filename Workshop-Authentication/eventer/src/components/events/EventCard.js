@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function EventCard({
     value
 }) {
@@ -8,7 +10,7 @@ export default function EventCard({
                 {value.name}
             </p>
             <p className="date">{value.date}</p>
-            <a className="details-btn" href="">Details</a>
+            <Link className="details-btn" to={`/details/${value._id}`}>Details</Link>
         </div>
     );
 }
