@@ -1,10 +1,9 @@
-import {Link} from 'react-router-dom';
-import { AuthContext } from "../contexts/AuthContext";
-import { useContext } from "react";
+import { Link } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
 
 
-export default function Header(){
-    let {state} = useContext(AuthContext)
+export default function Header() {
+    let { state } = useAuth();
     return (
         <nav>
             <ul>
