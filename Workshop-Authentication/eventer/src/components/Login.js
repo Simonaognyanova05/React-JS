@@ -28,7 +28,7 @@ export default function Login() {
                     <input type="password" name="password" id="password" placeholder="password" />
                     <button type="submit">login</button>
                     <p className="message">
-                        Not registered? <a href="#">Create an account</a>
+                        Not registered? <a href="/register">Create an account</a>
                     </p>
                 </form>
             </div>
