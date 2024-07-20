@@ -11,6 +11,7 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import Logout from './components/Logout';
 import Footer from "./components/Footer";
+import Delete from './components/Delete';
 
 
 const initialState = {
@@ -47,6 +48,7 @@ function App() {
               <Route path='/dashboard' element={<Dashboard />} />
               <Route path='/details/:eventId' element={<Details />} />
               <Route path='/edit/:eventId' element={<Edit />} />
+              <Route path='/delete/:eventId' element={<Delete />} />
               <Route path='/login' element={<Login />} />
               <Route path='/logout' element={<Logout />} />
               <Route path='/register' element={<Register />} />

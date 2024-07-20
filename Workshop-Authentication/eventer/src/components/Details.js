@@ -1,10 +1,13 @@
-import { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useState, useEffect, useContext } from "react";
+import { useParams, Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../contexts/AuthContext";
 import { getDetails } from "../services/getDetails";
+import { remove } from "../services/remove";
 
 export default function Details() {
+    let navigate = useNavigate();
     const { eventId } = useParams();
-
+    let { user } = useContext(AuthContext);
     let [event, setEvent] = useState([]);
 
     useEffect(() => {
@@ -12,7 +15,16 @@ export default function Details() {
             .then(res => {
                 setEvent(res);
             })
-    }, [])
+    }, []);
+
+    const deleteHandler = (e) => {
+        e.preventDefault();
+
+        remove(eventId, user.accessToken)
+            .then(() => {
+                navigate('/dashboard');
+            })
+    }
     return (
         <section id="details">
             <div id="details-wrapper">
@@ -34,7 +46,7 @@ export default function Details() {
 
                 <div id="action-buttons">
                     <Link to={`/edit/${event._id}`} id="edit-btn">Edit</Link>
-                    <Link to="" id="delete-btn">Delete</Link>
+                    <Link to={`/delete/${event._id}`} id="delete-btn" onClick={deleteHandler}>Delete</Link>
                 </div>
             </div>
         </section>
