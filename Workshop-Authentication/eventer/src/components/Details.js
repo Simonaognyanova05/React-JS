@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { getDetails } from "../services/getDetails";
 
 export default function Details() {
@@ -33,10 +33,8 @@ export default function Details() {
                 <h3>Going: <span id="go">0</span> times.</h3>
 
                 <div id="action-buttons">
-                    <a href="" id="edit-btn">Edit</a>
-                    <a href="" id="delete-btn">Delete</a>
-
-                    <a href="" id="go-btn">Going</a>
+                    <Link to={`/edit/${event._id}`} id="edit-btn">Edit</Link>
+                    <Link to="" id="delete-btn">Delete</Link>
                 </div>
             </div>
         </section>
