@@ -24,7 +24,15 @@ export default function Details() {
             .then(() => {
                 navigate('/dashboard');
             })
-    }
+    };
+
+    const loggedUser = (
+        <div id="action-buttons">
+            <Link to={`/edit/${event._id}`} id="edit-btn">Edit</Link>
+            <Link to={`/delete/${event._id}`} id="delete-btn" onClick={deleteHandler}>Delete</Link>
+        </div>
+    );
+
     return (
         <section id="details">
             <div id="details-wrapper">
@@ -42,12 +50,12 @@ export default function Details() {
 
                 </div>
 
-                <h3>Going: <span id="go">0</span> times.</h3>
+                {
+                    user._id === event._ownerId
+                        ? loggedUser
+                        : ''
+                }
 
-                <div id="action-buttons">
-                    <Link to={`/edit/${event._id}`} id="edit-btn">Edit</Link>
-                    <Link to={`/delete/${event._id}`} id="delete-btn" onClick={deleteHandler}>Delete</Link>
-                </div>
             </div>
         </section>
     );
