@@ -1,4 +1,6 @@
-export default function Catalog(){
+import { isAuth } from "../hoc/isAuth";
+
+function Catalog() {
     let dogs = ['Buki', 'Sirius', 'Foucs'];
 
     return (
@@ -7,3 +9,5 @@ export default function Catalog(){
         </ul>
     );
 }
+
+export default isAuth(Catalog);
