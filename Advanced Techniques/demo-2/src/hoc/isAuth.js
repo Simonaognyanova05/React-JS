@@ -3,10 +3,10 @@ import { Navigate } from 'react-router-dom';
 
 export const isAuth = (Component) => {
     const WrapperComponent = (props) => {
-        const { isAuthenticated } = useAuth();
+        const { isAuthenticated, state } = useAuth();
 
         return isAuthenticated
-            ? <Component {...props} />
+            ? <Component {...props} user={state}/>
             : <Navigate to='/login' />
     }
 
