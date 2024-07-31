@@ -1,9 +1,9 @@
 export default function Create() {
     return (
         <section id="create">
-            <div class="form">
+            <div className="form">
                 <h2>Add Product</h2>
-                <form class="create-form">
+                <form className="create-form">
                     <input type="text" name="name" id="name" placeholder="Product Name" />
                     <input type="text" name="imageUrl" id="product-image" placeholder="Product Image" />
                     <input type="text" name="category" id="product-category" placeholder="Category" />

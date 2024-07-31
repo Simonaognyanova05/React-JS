@@ -1,9 +1,9 @@
 export default function Edit() {
     return (
         <section id="edit">
-            <div class="form">
+            <div className="form">
                 <h2>Edit Product</h2>
-                <form class="edit-form">
+                <form className="edit-form">
                     <input type="text" name="name" id="name" placeholder="Product Name" />
                     <input type="text" name="imageUrl" id="product-image" placeholder="Product Image" />
                     <input type="text" name="category" id="product-category" placeholder="Category" />
