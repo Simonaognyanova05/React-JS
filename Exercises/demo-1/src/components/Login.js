@@ -1,11 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 import { login } from "../services/login";
-import { AuthContext } from '../contexts/AuthContext';
-import { useContext } from 'react';
+import { useAuth } from '../contexts/AuthContext';
 
 export default function Login() {
     let navigate = useNavigate();
-    const { onLogin } = useContext(AuthContext);
+    const { onLogin } = useAuth();
 
     const submitHandler = (e) => {
         e.preventDefault();

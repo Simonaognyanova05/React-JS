@@ -1,6 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
-import { AuthContext } from './contexts/AuthContext';
-import { useState } from 'react';
+import { AuthProvider } from './contexts/AuthContext';
 import Header from "./components/Header";
 import Home from './components/Home';
 import Create from './components/Create';
@@ -12,30 +11,11 @@ import Register from './components/Register';
 import Footer from './components/Footer';
 import { Logout } from './components/Logout';
 
-const initialState = {
-  _id: '',
-  email: '',
-  accessToken: ''
-}
+
 function App() {
-
-  const [user, setUser] = useState(initialState);
-
-  const onLogin = (authData) => {
-    setUser(authData);
-  };
-
-  const onRegister = (authData) => {
-    setUser(authData);
-  };
-
-  const onLogout = () => {
-    setUser(initialState);
-  }
-
   return (
     <>
-      <AuthContext.Provider value={{ user, onLogin, onRegister, onLogout }}>
+      <AuthProvider>
         <div id="wrapper">
           <Header />
 
@@ -54,7 +34,7 @@ function App() {
           </main>
         </div>
         <Footer />
-      </AuthContext.Provider>
+      </AuthProvider>
     </>
   );
 }
