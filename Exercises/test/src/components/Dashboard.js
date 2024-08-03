@@ -7,7 +7,7 @@ const fruitCard = (fruit) => {
             <img src={fruit.imageUrl} alt="example1" />
             <h3 className="title">{fruit.name}</h3>
             <p>{fruit.description}</p>
-            <a className="details-btn" href="">More Info</a>
+            <a className="details-btn" href={`/details/${fruit._id}`}>More Info</a>
         </div>
 
     </section>)
