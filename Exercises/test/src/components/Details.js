@@ -15,7 +15,7 @@ export default function Details() {
     const ownerButtons = (
         <div id="action-buttons">
             <Link to={`/edit/${details._id}`} id="edit-btn">Edit</Link>
-            <Link to="" id="delete-btn">Delete</Link>
+            <Link to={`/delete/${details._id}`} id="delete-btn">Delete</Link>
         </div>
     )
 

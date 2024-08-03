@@ -10,6 +10,7 @@ import Register from './components/Register';
 import Footer from "./components/Footer";
 import { AuthProvider } from './contexts/AuthContext';
 import Logout from './components/Logout';
+import Delete from './components/Delete';
 
 function App() {
   return (
@@ -25,6 +26,8 @@ function App() {
               <Route path='/dashboard' element={<Dashboard />} />
               <Route path='/details/:fruitId' element={<Details />} />
               <Route path='/edit/:fruitId' element={<Edit />} />
+              <Route path='/delete/:fruitId' element={<Delete />} />
+
               <Route path='/login' element={<Login />} />
               <Route path='/logout' element={<Logout />} />
               <Route path='/register' element={<Register />} />
