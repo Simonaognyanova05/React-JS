@@ -35,7 +35,7 @@ export default function Details() {
 
                 <div id="action-buttons">
                     <Link to={`/edit/${details._id}`} id="edit-btn">Edit</Link>
-                    <a href="" id="delete-btn">Delete</a>
+                    <Link to={`/delete/${details._id}`} id="delete-btn">Delete</Link>
                 </div>
             </div>
         </section>

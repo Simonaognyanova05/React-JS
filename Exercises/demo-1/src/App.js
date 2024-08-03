@@ -10,6 +10,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import Footer from './components/Footer';
 import { Logout } from './components/Logout';
+import Delete from './components/Delete';
 
 
 function App() {
@@ -26,6 +27,8 @@ function App() {
               <Route path='/dashboard' element={<Dashboard />} />
               <Route path='/details/:productId' element={<Details />} />
               <Route path='/edit/:productId' element={<Edit />} />
+              <Route path='/delete/:productId' element={<Delete />} />
+
               <Route path='/login' element={<Login />} />
               <Route path='/register' element={<Register />} />
               <Route path='/logout' element={<Logout />} />
