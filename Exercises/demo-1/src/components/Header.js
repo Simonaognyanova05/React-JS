@@ -20,7 +20,7 @@ export default function Header() {
     )
     return (
         <header>
-            <Link id="logo" to="/"><img id="logo-img" src="./images/logo.png" alt="" /></Link>
+            <Link id="logo" to="/"><img id="logo-img" src="/images/logo.png" alt="" /></Link>
 
             <nav>
                 <div>

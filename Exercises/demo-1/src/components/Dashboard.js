@@ -24,14 +24,14 @@ export default function Dashboard() {
                                 <img src={x.imageUrl} alt="example1" />
                                 <p className="title">{x.name}</p>
                                 <p><strong>Price:</strong><span className="price">{x.price} </span>$</p>
-                                <a className="details-btn" href="">Details</a>
+                                <a className="details-btn" href={`/details/${x._id}`}>Details</a>
                             </div>
                         </section>
                     ))
-                    :  <h2>No products yet.</h2>
+                    : <h2>No products yet.</h2>
             }
 
-           
+
         </>
     );
 }
