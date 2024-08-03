@@ -1,15 +1,10 @@
 import { getDetails } from "../services/getDetails";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
 
 
-const ownerButtons = (
-    <div id="action-buttons">
-        <a href="" id="edit-btn">Edit</a>
-        <a href="" id="delete-btn">Delete</a>
-    </div>
-)
+
 
 export default function Details() {
 
@@ -17,6 +12,12 @@ export default function Details() {
     const { fruitId } = useParams();
     const { user } = useAuth();
 
+    const ownerButtons = (
+        <div id="action-buttons">
+            <Link to={`/edit/${details._id}`} id="edit-btn">Edit</Link>
+            <Link to="" id="delete-btn">Delete</Link>
+        </div>
+    )
 
     useEffect(() => {
         getDetails(fruitId)
