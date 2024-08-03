@@ -10,6 +10,7 @@ import Edit from './components/Edit';
 import Login from './components/Login';
 import Register from './components/Register';
 import Footer from './components/Footer';
+import { Logout } from './components/Logout';
 
 const initialState = {
   _id: '',
@@ -26,11 +27,15 @@ function App() {
 
   const onRegister = (authData) => {
     setUser(authData);
+  };
+
+  const onLogout = () => {
+    setUser(initialState);
   }
 
   return (
     <>
-      <AuthContext.Provider value={{ user, onLogin, onRegister }}>
+      <AuthContext.Provider value={{ user, onLogin, onRegister, onLogout }}>
         <div id="wrapper">
           <Header />
 
@@ -43,6 +48,8 @@ function App() {
               <Route path='/edit' element={<Edit />} />
               <Route path='/login' element={<Login />} />
               <Route path='/register' element={<Register />} />
+              <Route path='/logout' element={<Logout />} />
+
             </Routes>
           </main>
         </div>
