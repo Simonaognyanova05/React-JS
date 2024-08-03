@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { getAllProducts } from "../services/getAllProducts";
 
 export default function Dashboard() {
@@ -24,7 +25,7 @@ export default function Dashboard() {
                                 <img src={x.imageUrl} alt="example1" />
                                 <p className="title">{x.name}</p>
                                 <p><strong>Price:</strong><span className="price">{x.price} </span>$</p>
-                                <a className="details-btn" href={`/details/${x._id}`}>Details</a>
+                                <Link className="details-btn" to={`/details/${x._id}`}>Details</Link>
                             </div>
                         </section>
                     ))

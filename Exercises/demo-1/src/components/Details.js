@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getDetails } from '../services/getDetails';
@@ -33,10 +34,8 @@ export default function Details() {
                 </div>
 
                 <div id="action-buttons">
-                    <a href="" id="edit-btn">Edit</a>
+                    <Link to={`/edit/${details._id}`} id="edit-btn">Edit</Link>
                     <a href="" id="delete-btn">Delete</a>
-
-                    <a href="" id="buy-btn">Buy</a>
                 </div>
             </div>
         </section>
