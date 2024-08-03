@@ -23,9 +23,13 @@ export const AuthProvider = ({ children }) => {
 
     const onLogin = (authData) => {
         setUser(authData);
-    }
+    };
+
+    const onRegister = (authData) => {
+        setUser(authData);
+    };
     return (
-        <AuthContext.Provider value={{ user, onLogin }}>
+        <AuthContext.Provider value={{ user, onLogin, onRegister }}>
             {children}
         </AuthContext.Provider>
     );
