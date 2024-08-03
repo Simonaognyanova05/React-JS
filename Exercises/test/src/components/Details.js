@@ -1,11 +1,21 @@
 import { getDetails } from "../services/getDetails";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useAuth } from "../contexts/AuthContext";
+
+
+const ownerButtons = (
+    <div id="action-buttons">
+        <a href="" id="edit-btn">Edit</a>
+        <a href="" id="delete-btn">Delete</a>
+    </div>
+)
 
 export default function Details() {
 
     let [details, setDetails] = useState([]);
     const { fruitId } = useParams();
+    const { user } = useAuth();
 
 
     useEffect(() => {
@@ -17,7 +27,7 @@ export default function Details() {
     return (
         <section id="details">
             <div id="details-wrapper">
-                <img id="details-img" src="./images/fruit 1.png" alt="example1" />
+                <img id="details-img" src={details.imageUrl} alt="example1" />
                 <p id="details-title">{details.name}</p>
                 <div id="info-wrapper">
                     <div id="details-description">
@@ -30,10 +40,12 @@ export default function Details() {
                         </p>
                     </div>
 
-                    <div id="action-buttons">
-                        <a href="" id="edit-btn">Edit</a>
-                        <a href="" id="delete-btn">Delete</a>
-                    </div>
+                    {
+                        details._ownerId == user._id
+                            ? ownerButtons
+                            : ''
+                    }
+
                 </div>
             </div>
         </section>
