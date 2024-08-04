@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const Cat = require('./models/Cat');
+
 const url = 'mongodb://localhost:27017/cats';
 
 const connectionParams = {
@@ -6,15 +8,7 @@ const connectionParams = {
     useNewUrlParser: true
 };
 
-const catSchema = new mongoose.Schema({
-    name: { type: String },
-    age: { type: Number },
-    breed: { type: String },
-    img: { type: String },
-    ownerId: { type: String },
-});
 
-const Cat = mongoose.model('Cat', catSchema);
 
 module.exports = async function getCats() {
     try {
