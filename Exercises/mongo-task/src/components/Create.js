@@ -12,7 +12,7 @@ export default function Create() {
 
         createCats(name, age, breed, img, ownerId)
             .then(() => {
-                navigate('/');
+                navigate('/cats');
             })
     }
     return (
