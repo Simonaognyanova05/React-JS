@@ -10,10 +10,9 @@ function App() {
       <Header />
 
       <Routes>
-        <Route path="/" element={<Home/>} />
-        <Route path="/cars" element={<Cars/>} />
-        <Route path="/create" element={<Create/>} />
-
+        <Route path="/" element={<Home />} />
+        <Route path="/cars" element={<Cars />} />
+        <Route path="/create" element={<Create />} />
       </Routes>
     </>
   );
