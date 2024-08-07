@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get('/cars', async (req, res) => {
-    await cars();
+    await cars(req, res);
 });
 
 app.post('/create', async (req, res) => {
