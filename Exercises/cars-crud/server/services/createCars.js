@@ -17,6 +17,7 @@ async function createCar(req, res) {
         const car = new Car({ brand, model, year });
 
         await car.save();
+        res.redirect('/cars');
     } catch (e) {
         throw e; F
     }
