@@ -14,6 +14,7 @@ async function updateCars(req, res) {
     const { brand, model, year } = req.body;
     try {
         await Car.updateOne({ brand }, { $set: { brand, model, year } });
+        res.redirect('/cars')
     } catch (e) {
         throw e;
     }
