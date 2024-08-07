@@ -14,6 +14,7 @@ async function deleteCars(req, res) {
     const { brand, model } = req.body;
     try {
         await Car.findOneAndDelete({ brand, model });
+        res.redirect('/cars');
     } catch (e) {
         throw e;
     }
