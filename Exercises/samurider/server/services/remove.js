@@ -8,22 +8,17 @@ const connectionParams = {
     useNewUrlParser: true
 };
 
-async function create(req, res) {
+async function removeMotor(req, res) {
     await mongoose.connect(dbUrl, connectionParams);
 
-    const { model, imageUrl, year, mileage, contact, about } = req.body;
+    const motorId = req.params.motorId;
 
     try {
-        const motor = new Motorcycle({
-            model, imageUrl, year, mileage, contact, about
-        });
-
-        await motor.save();
+        await Motorcycle.findByIdAndDelete(motorId);
         res.redirect('/dashboard');
-
     } catch (e) {
         throw e;
     }
 };
 
-module.exports = { create };
+module.exports = { removeMotor }

@@ -7,6 +7,7 @@ const { create } = require('./services/create');
 const { getMotors } = require('./services/getMotors');
 const { getDetails } = require('./services/details');
 const { editMotor } = require('./services/edit');
+const { removeMotor } = require('./services/remove');
 
 const app = express();
 app.use(cors());
@@ -38,5 +39,10 @@ app.put('/edit/:motorId', async (req, res) => {
     const motor = await editMotor(req, res);
     res.json(motor);
 });
+
+app.delete('/remove/:motorId', async (req, res) => {
+    await removeMotor(req, res);
+});
+
 
 app.listen(3001);

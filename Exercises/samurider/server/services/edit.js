@@ -16,6 +16,7 @@ async function editMotor(req, res) {
 
     try {
         await Motorcycle.findOneAndUpdate({ _id: motorId }, { $set: { model, imageUrl, year, mileage, contact, about } });
+        res.redirect('/dashboard');
     } catch (e) {
         throw e;
     }
