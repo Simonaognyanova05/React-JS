@@ -6,6 +6,7 @@ const { login } = require('./services/login');
 const { create } = require('./services/create');
 const { getMotors } = require('./services/getMotors');
 const { getDetails } = require('./services/details');
+const { editMotor } = require('./services/edit');
 
 const app = express();
 app.use(cors());
@@ -31,6 +32,11 @@ app.get('/dashboard', async (req, res) => {
 app.get('/details/:motorId', async (req, res) => {
     const motor = await getDetails(req, res);
     res.json(motor);
-})
+});
+
+app.put('/edit/:motorId', async (req, res) => {
+    const motor = await editMotor(req, res);
+    res.json(motor);
+});
 
 app.listen(3001);
