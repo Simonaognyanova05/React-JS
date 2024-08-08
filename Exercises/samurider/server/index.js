@@ -5,6 +5,7 @@ const { register } = require('./services/register');
 const { login } = require('./services/login');
 const { create } = require('./services/create');
 const { getMotors } = require('./services/getMotors');
+const { getDetails } = require('./services/details');
 
 const app = express();
 app.use(cors());
@@ -25,6 +26,11 @@ app.post('/create', async (req, res) => {
 app.get('/dashboard', async (req, res) => {
     const motors = await getMotors();
     res.json(motors);
+});
+
+app.get('/details/:motorId', async (req, res) => {
+    const motor = await getDetails(req, res);
+    res.json(motor);
 })
 
 app.listen(3001);
