@@ -8,21 +8,24 @@ const connectionParams = {
     useNewUrlParser: true
 };
 
-async function register(req, res) {
+async function login(req, res) {
     await mongoose.connect(dbUrl, connectionParams);
 
     const { email, password } = req.body;
 
     try {
-        const user = new User({
-            email, password
-        });
+        const user = await User.findOne({ email })
 
-        await user.save();
-        res.redirect('/');
+        if (user && user.password == password) {
+            console.log('success');
+
+            res.redirect('/');
+        } else {
+            throw 'Incorrect data!';
+        }
     } catch (e) {
         throw e;
     }
 }
 
-module.exports = { register };
+module.exports = { login };
