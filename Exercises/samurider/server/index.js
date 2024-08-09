@@ -44,5 +44,4 @@ app.delete('/remove/:motorId', async (req, res) => {
     await removeMotor(req, res);
 });
 
-
 app.listen(3001);
