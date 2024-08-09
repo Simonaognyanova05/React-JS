@@ -1,8 +1,11 @@
 import { useNavigate } from 'react-router-dom';
 import { login } from '../services/login';
+import { useAuth } from '../contexts/AuthContext';
 
 export default function Login() {
     const navigate = useNavigate();
+
+    const { onLogin } = useAuth();
 
     const loginHandler = async (e) => {
         e.preventDefault();
@@ -13,6 +16,8 @@ export default function Login() {
         let res = await login(email, password);
 
         if (res.status == 200) {
+            const data = await res.json();
+            onLogin(data);
             navigate('/');
         } else {
             console.log('Incorrect data!');
@@ -22,7 +27,7 @@ export default function Login() {
         <form onSubmit={loginHandler}>
             <input type="text" name="email" placeholder="email" />
             <input type="password" name="password" placeholder="password" />
-            <input type="submit" name="Login" />
+            <input type="submit" value="Login" />
         </form>
     );
 }

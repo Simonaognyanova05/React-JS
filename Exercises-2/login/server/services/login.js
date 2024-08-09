@@ -18,11 +18,11 @@ async function login(req, res) {
         const user = await User.findOne({ email });
 
         if (!user || user.password !== password) {
-            return res.status(401).json();
+            return res.status(401).json({ message: 'Incorrect data!' });
         }
 
         console.log('success');
-        return res.status(200).json();
+        return res.status(200).json({ _id: user._id, email: user.email });
     } catch (e) {
         throw e;
     }
