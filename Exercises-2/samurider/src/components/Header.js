@@ -29,10 +29,11 @@ export default function Header() {
                 </div>
 
                 {
-                    Boolean(user._id)
+                    user.email
                         ? userResult
                         : guestResult
                 }
+
             </nav>
         </header>
     );

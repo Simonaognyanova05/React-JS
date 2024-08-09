@@ -14,15 +14,15 @@ async function login(req, res) {
     const { email, password } = req.body;
 
     try {
-        const user = await User.findOne({ email })
+        const user = await User.findOne({ email });
 
         if (user && user.password == password) {
             console.log('success');
-
             res.redirect('/');
         } else {
             throw 'Incorrect data!';
         }
+
     } catch (e) {
         throw e;
     }

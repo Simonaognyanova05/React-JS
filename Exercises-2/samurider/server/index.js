@@ -18,7 +18,8 @@ app.post('/register', async (req, res) => {
 });
 
 app.post('/login', async (req, res) => {
-    await login(req, res);
+    const user = await login(req, res);
+    res.json(user);
 });
 
 app.post('/create', async (req, res) => {
