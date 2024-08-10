@@ -4,25 +4,25 @@ export const AuthContext = createContext();
 
 let initialState = {
     _id: '',
-    email: '',
-    accessToken: ''
+    email: ''
 }
 export const AuthProvider = ({ children }) => {
-    let [user, setUser] = useState(initialState)
+    const [user, setUser] = useState(() => {
+        const storedUser = localStorage.getItem('user');
+        return storedUser ? JSON.parse(storedUser) : initialState;
+    });
 
     const onLogin = (authData) => {
         setUser(authData);
-    };
-
-    const onRegister = (authData) => {
-        setUser(authData);
+        localStorage.setItem('user', JSON.stringify(authData));
     };
 
     const onLogout = () => {
         setUser(initialState);
+        localStorage.removeItem('user');
     };
     return (
-        <AuthContext.Provider value={{ user, onLogin, onRegister, onLogout }}>
+        <AuthContext.Provider value={{ user, onLogin, onLogout }}>
             {children}
         </AuthContext.Provider>
     );

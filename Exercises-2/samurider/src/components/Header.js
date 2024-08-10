@@ -28,10 +28,16 @@ export default function Header() {
                     <Link to="/dashboard">Motorcycles</Link>
                 </div>
 
-                {
-                    user.email
-                        ? userResult
-                        : guestResult
+                {Boolean(user.email)
+                    ? <div className="user">
+                        <Link to="/create">Add Motorcycle</Link>
+                        <Link to="/logout">Logout</Link>
+                    </div>
+                    : <div className="guest">
+                        <Link to="/login">Login</Link>
+                        <Link to="/register">Register</Link>
+
+                    </div>
                 }
 
             </nav>

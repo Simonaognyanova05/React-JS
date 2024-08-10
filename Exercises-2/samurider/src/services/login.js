@@ -5,13 +5,7 @@ export async function login(email, password) {
             'content-type': 'application/json'
         },
         body: JSON.stringify({ email, password })
-    })
+    });
 
-    let res = await user.json();
-
-    if (user.ok) {
-        return res;
-    } else {
-        throw res.message;
-    }
+    return user;
 }
