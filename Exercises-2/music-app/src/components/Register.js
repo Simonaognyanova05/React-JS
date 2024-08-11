@@ -6,7 +6,7 @@ export default function Register() {
     const navigate = useNavigate();
     const { onRegister } = useAuth();
 
-    const registerHandler = (e) => {
+    const registerHandler = async (e) => {
         e.preventDefault();
 
         let formData = new FormData(e.currentTarget);
@@ -21,14 +21,16 @@ export default function Register() {
             return;
         }
 
-        register(email, password)
-            .then(res => {
-                return res.json();
-            })
-            .then(data => {
-                onRegister(data);
-                navigate('/');
-            })
+        let result = await register(email, password);
+
+        if (result.status == 409) {
+            alert('User already exist!');
+            return;
+        };
+
+        const data = await result.json();
+        onRegister(data);
+        navigate('/');
     }
     return (
         <section id="registerPage">

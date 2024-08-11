@@ -14,6 +14,13 @@ async function register(req, res) {
     const { email, password } = req.body;
 
     try {
+
+        const existedUser = await User.findOne({ email });
+
+        if (existedUser) {
+            return res.status(409).json({ message: 'User already exists' });
+        };
+
         const user = new User({
             email, password
         });
