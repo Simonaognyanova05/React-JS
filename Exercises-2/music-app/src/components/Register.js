@@ -31,6 +31,7 @@ export default function Register() {
         const data = await result.json();
         onRegister(data);
         navigate('/');
+        return;
     }
     return (
         <section id="registerPage">
