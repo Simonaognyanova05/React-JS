@@ -1,7 +1,29 @@
+import { useNavigate } from 'react-router-dom';
+import { login } from '../services/login';
+import { useAuth } from '../contexts/AuthContext';
+
 export default function Login() {
+    const navigate = useNavigate();
+    const { onLogin } = useAuth();
+
+    const loginHandler = (e) => {
+        e.preventDefault();
+
+        let formData = new FormData(e.currentTarget);
+        let { email, password } = Object.fromEntries(formData);
+
+        login(email, password)
+            .then(res => {
+                return res.json();
+            })
+            .then(data => {
+                onLogin(data);
+                navigate('/');
+            })
+    }
     return (
         <section id="loginPage">
-            <form>
+            <form onSubmit={loginHandler}>
                 <fieldset>
                     <legend>Login</legend>
 
