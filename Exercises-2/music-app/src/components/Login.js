@@ -6,20 +6,22 @@ export default function Login() {
     const navigate = useNavigate();
     const { onLogin } = useAuth();
 
-    const loginHandler = (e) => {
+    const loginHandler = async (e) => {
         e.preventDefault();
 
         let formData = new FormData(e.currentTarget);
         let { email, password } = Object.fromEntries(formData);
 
-        login(email, password)
-            .then(res => {
-                return res.json();
-            })
-            .then(data => {
-                onLogin(data);
-                navigate('/');
-            })
+        let result = await login(email, password);
+
+        if (result.status == 401) {
+            alert('Incorrect data!');
+            return;
+        }
+
+        let data = await result.json();
+        onLogin(data);
+        navigate('/');
     }
     return (
         <section id="loginPage">

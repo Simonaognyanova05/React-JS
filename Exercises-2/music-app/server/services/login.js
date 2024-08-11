@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
 const User = require('./models/User');
 
 const dbUrl = 'mongodb+srv://simonaognanova05:NNN9BLA68lHrjlMM@react-task.hujfarb.mongodb.net/';
@@ -16,7 +17,8 @@ async function login(req, res) {
     try {
         const user = await User.findOne({ email });
 
-        if (!user || user.password !== password) {
+        const comparedPass = await bcrypt.compare(password, user.hashedPass);
+        if (!user || !comparedPass) {
             return res.status(401).json({ message: 'Incorrect data!' });
         };
 
