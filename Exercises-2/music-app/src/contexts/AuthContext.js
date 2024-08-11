@@ -18,8 +18,13 @@ export const AuthProvider = ({ children }) => {
         localStorage.setItem('user', JSON.stringify(authData));
     };
 
+    const onLogout = () => {
+        setUser(initialState);
+        localStorage.removeItem('user');
+    }
+
     return (
-        <AuthContext.Provider value={{ user, onLogin }}>
+        <AuthContext.Provider value={{ user, onLogin, onLogout }}>
             {children}
         </AuthContext.Provider>
     );

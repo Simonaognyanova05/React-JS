@@ -9,6 +9,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import Welcome from './components/Welcome';
 import Footer from './components/Footer';
+import Logout from './components/Logout';
 
 function App() {
   return (
@@ -25,6 +26,8 @@ function App() {
             <Route path='/edit' element={<Edit />} />
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
+            <Route path='/logout' element={<Logout />} />
+
           </Routes>
         </main>
         <Footer />
