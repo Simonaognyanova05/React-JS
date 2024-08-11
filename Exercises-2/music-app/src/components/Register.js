@@ -10,7 +10,16 @@ export default function Register() {
         e.preventDefault();
 
         let formData = new FormData(e.currentTarget);
-        let { email, password } = Object.fromEntries(formData);
+        let { email, password, confPass } = Object.fromEntries(formData);
+
+        if (password !== confPass) {
+            alert('Passwords do not match!');
+            return;
+        }
+        if (password.length < 6) {
+            alert('Password should be minimum 6 symbols!');
+            return;
+        }
 
         register(email, password)
             .then(res => {
@@ -34,7 +43,7 @@ export default function Register() {
                     <input id="password" className="password" name="password" type="password" placeholder="Password" />
 
                     <label htmlFor="conf-pass" className="vhide">Confirm Password:</label>
-                    <input id="conf-pass" className="conf-pass" name="conf-pass" type="password" placeholder="Confirm Password" />
+                    <input id="conf-pass" className="conf-pass" name="confPass" type="password" placeholder="Confirm Password" />
 
                     <button type="submit" className="register">Register</button>
 
