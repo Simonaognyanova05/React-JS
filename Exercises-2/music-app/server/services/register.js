@@ -19,6 +19,7 @@ async function register(req, res) {
         });
 
         await user.save();
+        return res.status(200).json({ _id: user._id, email: user.email });
     } catch (e) {
         throw e;
     }
