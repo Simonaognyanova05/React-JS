@@ -1,5 +1,6 @@
 export async function getAlbums() {
     let albums = await fetch('http://localhost:2005/catalog');
 
-    return albums;
+    let res = await albums.json();
+    return res;
 }
