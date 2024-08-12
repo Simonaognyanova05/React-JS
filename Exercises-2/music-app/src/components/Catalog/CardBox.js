@@ -8,7 +8,7 @@ export default function CardBox({albums}) {
                     <p className="artist">Artist: {albums.artist}</p>
                     <p className="genre">Genre: {albums.genre}</p>
                     <p className="price">Price: ${albums.price}</p>
-                    <p className="date">Release Date: {albums.date}</p>
+                    <p className="date">Release Date: {albums.releaseDate}</p>
                 </div>
                 <div className="btn-group">
                     <a href={`/details/${albums._id}`} id="details">Details</a>

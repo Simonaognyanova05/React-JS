@@ -5,6 +5,7 @@ const { register } = require('./services/register');
 const { create } = require('./services/create');
 const { getAlbums } = require('./services/getAlbums');
 const { getDetails } = require('./services/getDetails');
+const { updateAlbum } = require('./services/updateAlbum');
 
 const app = express();
 app.use(cors());
@@ -20,6 +21,10 @@ app.post('/register', async (req, res) => {
 
 app.post('/create', async (req, res) => {
     await create(req, res);
+});
+
+app.put('/edit/:albumId', async (req, res) => {
+    await updateAlbum(req, res);
 });
 
 app.get('/catalog', async (req, res) => {
