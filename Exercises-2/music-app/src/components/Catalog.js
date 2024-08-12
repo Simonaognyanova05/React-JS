@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 export default function Catalog() {
     return (
         <section id="catalogPage">

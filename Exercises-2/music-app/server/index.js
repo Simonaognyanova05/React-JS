@@ -3,6 +3,7 @@ const cors = require('cors');
 const { login } = require('./services/login');
 const { register } = require('./services/register');
 const { create } = require('./services/create');
+const { getAlbums } = require('./services/getAlbums');
 
 const app = express();
 app.use(cors());
@@ -18,6 +19,11 @@ app.post('/register', async (req, res) => {
 
 app.post('/create', async (req, res) => {
     await create(req, res);
-})
+});
+
+app.get('/catalog', async (req, res) => {
+    let albums = await getAlbums(req, res);
+    res.json(albums);
+});
 
 app.listen(2005);
