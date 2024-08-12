@@ -7,7 +7,7 @@ export default function Header() {
     return (
         <header>
             <nav>
-                <img src="./images/headphones.png" />
+                <img src="/images/headphones.png" />
                 <Link to="/">Home</Link>
                 <ul>
                     {

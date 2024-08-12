@@ -22,7 +22,7 @@ function App() {
             <Route path='/' element={<Welcome />} />
             <Route path='/catalog' element={<Catalog />} />
             <Route path='/create' element={<Create />} />
-            <Route path='/details' element={<Details />} />
+            <Route path='/details/:albumId' element={<Details />} />
             <Route path='/edit' element={<Edit />} />
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
