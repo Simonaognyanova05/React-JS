@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const { login } = require('./services/login');
 const { register } = require('./services/register');
+const { create } = require('./services/create');
 
 const app = express();
 app.use(cors());
@@ -13,6 +14,10 @@ app.post('/login', async (req, res) => {
 
 app.post('/register', async (req, res) => {
     await register(req, res);
+});
+
+app.post('/create', async (req, res) => {
+    await create(req, res);
 })
 
 app.listen(2005);

@@ -1,7 +1,25 @@
+import { useNavigate } from 'react-router-dom';
+import { create } from "../services/create";
+
 export default function Create() {
+    const navigate = useNavigate();
+
+    const createHandler = async (e) => {
+        e.preventDefault();
+
+        let formData = new FormData(e.currentTarget);
+        let { name, imgUrl, price, releaseDate, artist, genre, description } = Object.fromEntries(formData);
+
+        let albumRes = await create(name, imgUrl, price, releaseDate, artist, genre, description);
+
+
+        if (albumRes.status === 200) {
+            navigate('/catalog');
+        };
+    }
     return (
         <section className="createPage">
-            <form>
+            <form onSubmit={createHandler}>
                 <fieldset>
                     <legend>Add Album</legend>
 

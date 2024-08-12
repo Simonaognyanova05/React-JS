@@ -17,8 +17,12 @@ async function login(req, res) {
     try {
         const user = await User.findOne({ email });
 
+        if (!user) {
+            return res.status(401).json({ message: 'Incorrect data!' });
+        };
+
         const comparedPass = await bcrypt.compare(password, user.hashedPass);
-        if (!user || !comparedPass) {
+        if (!comparedPass) {
             return res.status(401).json({ message: 'Incorrect data!' });
         };
 
