@@ -23,7 +23,7 @@ function App() {
             <Route path='/catalog' element={<Catalog />} />
             <Route path='/create' element={<Create />} />
             <Route path='/details/:albumId' element={<Details />} />
-            <Route path='/edit' element={<Edit />} />
+            <Route path='/edit/:albumId' element={<Edit />} />
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
             <Route path='/logout' element={<Logout />} />

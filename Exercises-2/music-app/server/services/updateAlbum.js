@@ -17,6 +17,7 @@ async function updateAlbum(req, res) {
 
     try {
         await Album.findByIdAndUpdate({ _id: albumId }, { $set: { name, imgUrl, price, releaseDate, artistragons, genre, description } });
+        return res.status(200).json();
     } catch (e) {
         throw e;
     }
