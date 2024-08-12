@@ -1,8 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 import { create } from "../services/create";
+import { useAuth } from '../contexts/AuthContext';
 
 export default function Create() {
     const navigate = useNavigate();
+    const { user } = useAuth();
 
     const createHandler = async (e) => {
         e.preventDefault();
@@ -10,7 +12,7 @@ export default function Create() {
         let formData = new FormData(e.currentTarget);
         let { name, imgUrl, price, releaseDate, artist, genre, description } = Object.fromEntries(formData);
 
-        let albumRes = await create(name, imgUrl, price, releaseDate, artist, genre, description);
+        let albumRes = await create(name, imgUrl, price, releaseDate, artist, genre, description, user._id);
 
 
         if (albumRes.status === 200) {

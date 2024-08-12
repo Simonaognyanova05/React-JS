@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
 import { getDetails } from '../services/getDetails';
 
 export default function Details() {
     const [details, setDetails] = useState([]);
     const { albumId } = useParams();
+    const { user } = useAuth();
 
     useEffect(() => {
         getDetails(albumId)
@@ -29,10 +31,15 @@ export default function Details() {
                         <p>Description: {details.description}</p>
                     </div>
 
-                    <div className="actionBtn">
-                        <a href="#" className="edit">Edit</a>
-                        <a href="#" className="remove">Delete</a>
-                    </div>
+                    {
+                        details.ownerId == user._id
+                            ? <div className="actionBtn">
+                                <a href="#" className="edit">Edit</a>
+                                <a href="#" className="remove">Delete</a>
+                            </div>
+                            : ''
+                    }
+
                 </div>
             </div>
         </section>

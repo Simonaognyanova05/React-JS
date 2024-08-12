@@ -11,10 +11,10 @@ const connectionParams = {
 async function create(req, res) {
     await mongoose.connect(dbUrl, connectionParams);
 
-    const { name, imgUrl, price, releaseDate, artist, genre, description } = req.body;
+    const { name, imgUrl, price, releaseDate, artist, genre, description, ownerId } = req.body;
 
     try {
-        const album = new Album({ name, imgUrl, price, releaseDate, artist, genre, description });
+        const album = new Album({ name, imgUrl, price, releaseDate, artist, genre, description, ownerId });
 
         await album.save();
         return res.status(200).json();

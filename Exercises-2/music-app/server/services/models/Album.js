@@ -7,7 +7,8 @@ const albumSchema = new mongoose.Schema({
     releaseDate: { type: String, required: true },
     artist: { type: String, required: true },
     genre: { type: String, required: true },
-    description: { type: String, required: true }
+    description: { type: String, required: true },
+    ownerId: { type: String, required: true }
 });
 
 const Album = mongoose.model('Album', albumSchema);
