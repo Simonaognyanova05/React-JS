@@ -11,7 +11,7 @@ export default function CardBox({albums}) {
                     <p className="date">Release Date: {albums.date}</p>
                 </div>
                 <div className="btn-group">
-                    <a href="#" id="details">Details</a>
+                    <a href="/details" id="details">Details</a>
                 </div>
             </div>
         </div>

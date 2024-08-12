@@ -4,6 +4,7 @@ const { login } = require('./services/login');
 const { register } = require('./services/register');
 const { create } = require('./services/create');
 const { getAlbums } = require('./services/getAlbums');
+const { getDetails } = require('./services/getDetails');
 
 const app = express();
 app.use(cors());
@@ -24,6 +25,11 @@ app.post('/create', async (req, res) => {
 app.get('/catalog', async (req, res) => {
     let albums = await getAlbums(req, res);
     res.json(albums);
+});
+
+app.get('/details/:albumId', async (req, res) => {
+    let details = await getDetails(req, res);
+    res.json(details);
 });
 
 app.listen(2005);
