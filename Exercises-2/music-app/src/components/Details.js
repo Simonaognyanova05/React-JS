@@ -35,7 +35,7 @@ export default function Details() {
                         details.ownerId == user._id
                             ? <div className="actionBtn">
                                 <a href={`/edit/${details._id}`} className="edit">Edit</a>
-                                <a href="#" className="remove">Delete</a>
+                                <a href={`/delete/${details._id}`} className="remove">Delete</a>
                             </div>
                             : ''
                     }
