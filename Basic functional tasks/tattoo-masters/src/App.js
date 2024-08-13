@@ -8,6 +8,7 @@ import Edit from './components/Edit';
 import Home from './components/Home';
 import Login from './components/Login';
 import Register from './components/Register';
+import Logout from './components/Logout';
 import Footer from './components/Footer';
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
               <Route path='/edit' element={<Edit />} />
               <Route path='/login' element={<Login />} />
               <Route path='/register' element={<Register />} />
+              <Route path='/logout' element={<Logout />} />
 
             </Routes>
           </main>
