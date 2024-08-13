@@ -17,6 +17,7 @@ async function create(req, res) {
         const tattoo = new Tattoo({ type, imageUrl, description, userType });
 
         await tattoo.save();
+        return res.status(200).json();
     } catch (e) {
         throw e;
     }
