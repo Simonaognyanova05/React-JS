@@ -24,6 +24,8 @@ async function register(req, res) {
     try {
         const user = new User({ email, hashedPass });
         await user.save();
+
+        return res.status(200).json({ _id: user._id, email: user.email });
     } catch (e) {
         throw e;
     }
