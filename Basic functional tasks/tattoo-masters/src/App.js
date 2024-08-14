@@ -24,7 +24,7 @@ function App() {
               <Route path='/collection' element={<Collection />} />
               <Route path='/create' element={<Create />} />
               <Route path='/details/:tattooId' element={<Details />} />
-              <Route path='/edit' element={<Edit />} />
+              <Route path='/edit/:tattooId' element={<Edit />} />
               <Route path='/login' element={<Login />} />
               <Route path='/register' element={<Register />} />
               <Route path='/logout' element={<Logout />} />
