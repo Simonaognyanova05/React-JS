@@ -5,6 +5,7 @@ const { register } = require('./services/register');
 const { login } = require('./services/login');
 const { create } = require('./services/create');
 const { getTattoo } = require('./services/getTattoo');
+const { getDetails } = require('./services/getDetails');
 
 const app = express();
 app.use(cors());
@@ -25,6 +26,11 @@ app.post('/create', async (req, res) => {
 app.get('/collection', async(req, res) => {
     let tattoo = await getTattoo(req, res);
     res.json(tattoo);
-})
+});
+
+app.get('/details/:tattooId', async(req, res) => {
+    let details = await getDetails(req, res);
+    res.json(details);
+});
 
 app.listen(2005);
