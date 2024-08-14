@@ -38,7 +38,7 @@ export default function Details() {
                                 user._id === tattoo.ownerId
                                     ? <>
                                         <a href={`/edit/${tattoo._id}`} id="edit-btn">Edit</a>
-                                        <a href="#" id="delete-btn">Delete</a>
+                                        <a href={`/delete/${tattoo._id}`} id="delete-btn">Delete</a>
                                     </>
                                     : <a href="#" id="like-btn">Like</a>
                             }

@@ -9,6 +9,7 @@ import Home from './components/Home';
 import Login from './components/Login';
 import Register from './components/Register';
 import Logout from './components/Logout';
+import Delete from './components/Delete';
 import Footer from './components/Footer';
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
               <Route path='/create' element={<Create />} />
               <Route path='/details/:tattooId' element={<Details />} />
               <Route path='/edit/:tattooId' element={<Edit />} />
+              <Route path='/delete/:tattooId' element={<Delete />} />
               <Route path='/login' element={<Login />} />
               <Route path='/register' element={<Register />} />
               <Route path='/logout' element={<Logout />} />
