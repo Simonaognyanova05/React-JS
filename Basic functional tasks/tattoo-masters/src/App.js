@@ -23,7 +23,7 @@ function App() {
               <Route path='/' element={<Home />} />
               <Route path='/collection' element={<Collection />} />
               <Route path='/create' element={<Create />} />
-              <Route path='/details' element={<Details />} />
+              <Route path='/details/:tattooId' element={<Details />} />
               <Route path='/edit' element={<Edit />} />
               <Route path='/login' element={<Login />} />
               <Route path='/register' element={<Register />} />

@@ -1,19 +1,36 @@
+import { useState, useEffect } from "react";
+import { useParams } from 'react-router-dom';
+import { getDetails } from '../services/getDetails';
+
+
 export default function Details() {
+    const { tattooId } = useParams();
+    const [tattoo, setTattoo] = useState([]);
+
+    useEffect(() => {
+        getDetails(tattooId)
+            .then(res => {
+                return res.json();
+            })
+            .then(result => {
+                setTattoo(result);
+            })
+    }, [tattoo]);
+
+
     return (
         <section id="details">
             <div id="details-wrapper">
-                <img id="details-img" src="./images/japanese dragon.png" alt="example1"/>
+                <img id="details-img" src={tattoo.imageUrl} alt="example1" />
                 <div>
                     <div id="info-wrapper">
-                        <p id="details-type">Japanese Dragon</p>
+                        <p id="details-type">{tattoo.type}</p>
                         <div id="details-description">
-                            <p id="user-type">Tattoo Artist</p>
+                            <p id="user-type">{tattoo.userType}</p>
                             <p id="description">
-                                A majestic Japanese dragon wrapped in swirling clouds and
-                                flames, symbolizing strength, wisdom, and protection.
+                                {tattoo.description}
                             </p>
                         </div>
-                        <h3>Like tattoo:<span id="like">0</span></h3>
                         <div id="action-buttons">
                             <a href="#" id="edit-btn">Edit</a>
                             <a href="#" id="delete-btn">Delete</a>
