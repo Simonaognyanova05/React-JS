@@ -7,6 +7,7 @@ const { create } = require('./services/create');
 const { getTattoo } = require('./services/getTattoo');
 const { getDetails } = require('./services/getDetails');
 const { editTattoo } = require('./services/editTattoo');
+const { deleteTattoo } = require('./services/deleteTattoo');
 
 const app = express();
 app.use(cors());
@@ -36,6 +37,10 @@ app.get('/details/:tattooId', async(req, res) => {
 
 app.put('/edit/:tattooId', async(req, res) => {
     await editTattoo(req, res);
+});
+
+app.delete('/delete/:tattooId', async(req, res) => {
+    await deleteTattoo(req, res);
 });
 
 app.listen(2005);
