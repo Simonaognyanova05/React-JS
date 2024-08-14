@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
 import Header from './components/Header';
-import Collection from './components/Collection';
+import Collection from './components/Collection/Collection';
 import Create from './components/Create';
 import Details from './components/Details';
 import Edit from './components/Edit';
