@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
 import { getDetails } from '../services/getDetails';
 
 
 export default function Details() {
     const { tattooId } = useParams();
     const [tattoo, setTattoo] = useState([]);
+    const { user } = useAuth();
 
     useEffect(() => {
         getDetails(tattooId)
@@ -32,10 +34,14 @@ export default function Details() {
                             </p>
                         </div>
                         <div id="action-buttons">
-                            <a href="#" id="edit-btn">Edit</a>
-                            <a href="#" id="delete-btn">Delete</a>
-
-                            <a href="#" id="like-btn">Like</a>
+                            {
+                                user._id === tattoo.ownerId
+                                    ? <>
+                                        <a href="#" id="edit-btn">Edit</a>
+                                        <a href="#" id="delete-btn">Delete</a>
+                                    </>
+                                    : <a href="#" id="like-btn">Like</a>
+                            }
                         </div>
                     </div>
                 </div>

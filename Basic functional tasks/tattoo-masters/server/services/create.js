@@ -11,10 +11,10 @@ const connectionParams = {
 async function create(req, res) {
     await mongoose.connect(dbUrl, connectionParams);
 
-    const { type, imageUrl, description, userType } = req.body;
+    const { type, imageUrl, description, userType, ownerId } = req.body;
 
     try {
-        const tattoo = new Tattoo({ type, imageUrl, description, userType });
+        const tattoo = new Tattoo({ type, imageUrl, description, userType, ownerId });
 
         await tattoo.save();
         return res.status(200).json();

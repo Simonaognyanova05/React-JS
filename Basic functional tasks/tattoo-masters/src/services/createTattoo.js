@@ -1,7 +1,8 @@
 export async function createTattoo(type,
     imageUrl,
     description,
-    userType) {
+    userType,
+    ownerId) {
     let tattoo = await fetch('http://localhost:2005/create', {
         method: 'POST',
         headers: {
@@ -11,7 +12,8 @@ export async function createTattoo(type,
             type,
             imageUrl,
             description,
-            userType
+            userType,
+            ownerId
         })
     });
 

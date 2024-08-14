@@ -1,8 +1,10 @@
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
 import { createTattoo } from '../services/createTattoo';
 
 export default function Create() {
     const navigate = useNavigate();
+    const { user } = useAuth();
 
     const createHandler = async (e) => {
         e.preventDefault();
@@ -10,7 +12,7 @@ export default function Create() {
         let formData = new FormData(e.currentTarget);
         let { type, imageUrl, description, userType } = Object.fromEntries(formData);
 
-        let result = await createTattoo(type, imageUrl, description, userType);
+        let result = await createTattoo(type, imageUrl, description, userType, user._id);
 
         if (result.status === 200) {
             navigate('/collection');
