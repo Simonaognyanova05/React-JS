@@ -9,6 +9,7 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import Solutions from "./components/Solutions";
 import Footer from "./components/Footer";
+import Logout from './components/Logout';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
               <Route path='/details' element={<Details />} />
               <Route path='/edit' element={<Edit />} />
               <Route path='/login' element={<Login />} />
+              <Route path='/logout' element={<Logout />} />
               <Route path='/register' element={<Register />} />
               <Route path='/solutions' element={<Solutions />} />
             </Routes>
