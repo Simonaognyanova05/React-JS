@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
 const User = require('./models/User');
 
 const dbUrl = 'mongodb+srv://simonaognanova05:NNN9BLA68lHrjlMM@react-task.hujfarb.mongodb.net/renewtech_db';
@@ -11,9 +12,16 @@ const connectionParams = {
 async function register(req, res) {
     await mongoose.connect(dbUrl, connectionParams);
 
-    const { email, hashedPass } = req.body;
+    const { email, password } = req.body;
 
     try {
+        const existedUser = await User.findOne({ email });
+
+        if (existedUser) {
+            return res.status(409).json();
+        };
+
+        const hashedPass = await bcrypt.hash(password, 10);
         const user = new User({
             email, hashedPass
         });
