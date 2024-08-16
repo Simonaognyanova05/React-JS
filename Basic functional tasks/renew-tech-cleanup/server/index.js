@@ -7,6 +7,7 @@ const { createSolution } = require('./services/createSolution');
 const { getSolutions } = require('./services/getSolutions');
 const { getDetails } = require('./services/getDetails');
 const { editSolution } = require('./services/editSolution');
+const { deleteSolution } = require('./services/deleteSolution');
 
 
 const app = express();
@@ -38,6 +39,10 @@ app.get('/details/:solutionId', async (req, res) => {
 
 app.put('/edit/:solutionId', async (req, res) => {
     await editSolution(req, res);
+});
+
+app.delete('/delete/:solutionId', async (req, res) => {
+    await deleteSolution(req, res);
 });
 
 app.listen(2005);
