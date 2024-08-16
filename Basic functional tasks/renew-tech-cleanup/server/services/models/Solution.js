@@ -5,6 +5,7 @@ const solutionSchema = new mongoose.Schema({
     imageUrl: { type: String, required: true },
     description: { type: String, required: true },
     learnMore: { type: String, required: true },
+    ownerId: { type: String, required: true },
 });
 
 const Solution = mongoose.model('Solution', solutionSchema);

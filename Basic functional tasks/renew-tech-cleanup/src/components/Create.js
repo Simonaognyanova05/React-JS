@@ -1,8 +1,10 @@
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
 import { createSolution } from '../services/createSolution';
 
 export default function Create() {
     const navigate = useNavigate();
+    const { user } = useAuth();
 
     const createHandler = async (e) => {
         e.preventDefault();
@@ -10,7 +12,7 @@ export default function Create() {
         let formData = new FormData(e.currentTarget);
         let { type, imageUrl, description, learnMore } = Object.fromEntries(formData);
 
-        let result = await createSolution(type, imageUrl, description, learnMore);
+        let result = await createSolution(type, imageUrl, description, learnMore, user._id);
 
         if (result.status === 200) {
             navigate('/solutions');

@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
 import { getDetails } from '../services/getDetails';
 
 export default function Details() {
     const { solutionId } = useParams();
     const [solution, setSolution] = useState([]);
+    const { user } = useAuth();
 
     useEffect(() => {
         getDetails(solutionId)
@@ -34,10 +36,14 @@ export default function Details() {
                     <h3>Like Solution:<span id="like">0</span></h3>
 
                     <div id="action-buttons">
-                        <a href="#" id="edit-btn">Edit</a>
-                        <a href="#" id="delete-btn">Delete</a>
-
-                        <a href="#" id="like-btn">Like</a>
+                        {
+                            user._id === solution.ownerId
+                                ? <>
+                                    <a href="#" id="edit-btn">Edit</a>
+                                    <a href="#" id="delete-btn">Delete</a>
+                                </>
+                                : <a href="#" id="like-btn">Like</a>
+                        }
                     </div>
                 </div>
             </div>

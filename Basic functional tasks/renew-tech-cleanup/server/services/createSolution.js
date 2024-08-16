@@ -11,11 +11,11 @@ const connectionParams = {
 async function createSolution(req, res) {
     await mongoose.connect(dbUrl, connectionParams);
 
-    const { type, imageUrl, description, learnMore } = req.body;
+    const { type, imageUrl, description, learnMore, ownerId } = req.body;
 
     try {
         const solution = new Solution({
-            type, imageUrl, description, learnMore
+            type, imageUrl, description, learnMore, ownerId
         });
 
         await solution.save();
