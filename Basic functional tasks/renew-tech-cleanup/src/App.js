@@ -7,7 +7,7 @@ import Edit from "./components/Edit";
 import Home from "./components/Home";
 import Login from "./components/Login";
 import Register from "./components/Register";
-import Solutions from "./components/Solutions";
+import Solutions from "./components/Solutions/Solutions";
 import Footer from "./components/Footer";
 import Logout from './components/Logout';
 
