@@ -6,6 +6,7 @@ const { login } = require('./services/login');
 const { createSolution } = require('./services/createSolution');
 const { getSolutions } = require('./services/getSolutions');
 const { getDetails } = require('./services/getDetails');
+const { editSolution } = require('./services/editSolution');
 
 
 const app = express();
@@ -33,6 +34,10 @@ app.get('/solutions', async (req, res) => {
 app.get('/details/:solutionId', async (req, res) => {
     let solutions = await getDetails(req, res);
     res.json(solutions);
+});
+
+app.put('/edit/:solutionId', async (req, res) => {
+    await editSolution(req, res);
 });
 
 app.listen(2005);
