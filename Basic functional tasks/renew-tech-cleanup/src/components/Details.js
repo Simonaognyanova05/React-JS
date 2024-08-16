@@ -1,26 +1,33 @@
+import { useState, useEffect } from "react";
+import { useParams } from 'react-router-dom';
+import { getDetails } from '../services/getDetails';
+
 export default function Details() {
+    const { solutionId } = useParams();
+    const [solution, setSolution] = useState([]);
+
+    useEffect(() => {
+        getDetails(solutionId)
+            .then(result => {
+                return result.json();
+            })
+            .then(res => {
+                setSolution(res);
+            })
+    }, [])
     return (
         <section id="details">
             <div id="details-wrapper">
-                <img id="details-img" src="./images/Bioremediation.png" alt="example1" />
+                <img id="details-img" src={solution.imageUrl} alt="example1" />
                 <div>
-                    <p id="details-type">Bioremediation</p>
+                    <p id="details-type">{solution.type}</p>
                     <div id="info-wrapper">
                         <div id="details-description">
                             <p id="description">
-                                Synthetic biology involves the design and construction of
-                                biological systems for useful purposes.
+                                {solution.description}
                             </p>
                             <p id="more-info">
-                                In the realm of environmental cleanup, synthetic biology can
-                                be employed to engineer microorganisms capable of degrading
-                                toxic pollutants. By introducing synthetic genes into
-                                bacteria or fungi, researchers can enhance their ability to
-                                break down pollutants such as hydrocarbons, pesticides, and
-                                industrial chemicals. These engineered microorganisms can be
-                                deployed in contaminated sites to accelerate the natural
-                                biodegradation process, offering a cost-effective and
-                                sustainable solution to environmental pollution.
+                                {solution.learnMore}
                             </p>
                         </div>
                     </div>
