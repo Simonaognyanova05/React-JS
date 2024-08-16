@@ -4,6 +4,7 @@ const cors = require('cors');
 const { register } = require('./services/register');
 const { login } = require('./services/login');
 const { createSolution } = require('./services/createSolution');
+const { getSolutions } = require('./services/getSolutions');
 
 
 const app = express();
@@ -21,6 +22,11 @@ app.post('/login', async (req, res) => {
 
 app.post('/create', async (req, res) => {
     await createSolution(req, res);
+});
+
+app.get('/solutions', async (req, res) => {
+    let solutions = await getSolutions(req, res);
+    res.json(solutions);
 });
 
 app.listen(2005);
