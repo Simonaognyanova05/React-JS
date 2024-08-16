@@ -40,7 +40,7 @@ export default function Details() {
                             user._id === solution.ownerId
                                 ? <>
                                     <a href={`/edit/${solution._id}`} id="edit-btn">Edit</a>
-                                    <a href="#" id="delete-btn">Delete</a>
+                                    <a href={`/delete/${solution._id}`} id="delete-btn">Delete</a>
                                 </>
                                 : <a href="#" id="like-btn">Like</a>
                         }

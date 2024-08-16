@@ -10,6 +10,7 @@ import Register from "./components/Register";
 import Solutions from "./components/Solutions/Solutions";
 import Footer from "./components/Footer";
 import Logout from './components/Logout';
+import Delete from './components/Delete';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
               <Route path='/create' element={<Create />} />
               <Route path='/details/:solutionId' element={<Details />} />
               <Route path='/edit/:solutionId' element={<Edit />} />
+              <Route path='/delete/:solutionId' element={<Delete />} />
               <Route path='/login' element={<Login />} />
               <Route path='/logout' element={<Logout />} />
               <Route path='/register' element={<Register />} />
