@@ -12,7 +12,7 @@ async function getMovies() {
     await mongoose.connect(dbUrl, connectionParams);
 
     try{
-        const movies = await Movie.find();
+        const movies = await Movie.find({});
         console.log("Done");
         
         return movies;

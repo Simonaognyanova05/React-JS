@@ -7,14 +7,17 @@ const { deleteMovie } = require('./services/deleteMovie');
 const app = express();
 app.use(express.json());
 
-app.get('/', getMovies);
+app.get('/', async (req, res) => { 
+    const result = await getMovies();
+    return res.json(result); 
+});
 
-app.post('/', async (req, res) => { await createMovie(req, res)} );
+app.post('/', async (req, res) => { await createMovie(req, res) });
 app.put('/:movieId', async (req, res) => {
     await updateMovie(req, res);
 });
 
-app.delete('/:movieId', async(req, res) => {
+app.delete('/:movieId', async (req, res) => {
     await deleteMovie(req, res);
 })
 app.listen(2000);
