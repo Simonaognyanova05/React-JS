@@ -3,9 +3,11 @@ const { getMovies } = require('./services/getMovies');
 const { createMovie } = require('./services/createMovie');
 const { updateMovie } = require('./services/updateMovie');
 const { deleteMovie } = require('./services/deleteMovie');
+const cors = require('cors');
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 app.get('/', async (req, res) => { 
     const result = await getMovies();
