@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import Home from "./components/Home";
 import Movies from "./components/Movies";
 import Create from "./components/Create";
+import Delete from "./components/Delete";
 
 function App() {
   return (
@@ -12,6 +13,8 @@ function App() {
         <Route path="/" element={<Home/>}/>
         <Route path="/movies" element={<Movies/>}/>
         <Route path="/create" element={<Create/>}/>
+        <Route path="/delete/:movieId" element={<Delete/>}/>
+
       </Routes>
     </div>
   );
