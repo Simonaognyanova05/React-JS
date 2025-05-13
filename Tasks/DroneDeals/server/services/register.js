@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
 const User = require('./models/User');
 
 const dbUrl = 'mongodb+srv://hotel_db:123hotel@cluster0.xqz9vjy.mongodb.net/';
@@ -11,11 +12,13 @@ const connectionParams = {
 async function register(req, res) {
     await mongoose.connect(dbUrl, connectionParams);
 
-    const { email, password } = req.body;
+    let { email, password } = req.body;
+
+    let hashedPass = await bcrypt.hash(password, 10);
 
     try {
         const user = new User({
-            email, password
+            email, hashedPass
         });
 
         await user.save();
