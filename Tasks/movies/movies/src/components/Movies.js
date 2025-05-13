@@ -21,9 +21,7 @@ export default function Movies() {
                     {x.title} - {x.year} - {x.time} 
                     <br />
                     <Link to={`/delete/${x._id}`}>DELETE</Link> <br />
-                    <Link to='/update'>UPDATE</Link>
-
-
+                    <Link to={`/update/${x._id}`}>UPDATE</Link>
                 </li>
                 )}
             </ul>
