@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const { register } = require('./services/register');
 const { login } = require('./services/login');
+const { logout } = require('./services/logout');
 
 const app = express();
 app.use(express.json());
@@ -14,5 +15,7 @@ app.post('/user/register', async(req, res) => {
 app.post('/user/login', async(req, res) => {
     await login(req, res);
 });
+
+app.get('/users/logout', (req, res) => logout(req, res));
 
 app.listen(2000);
