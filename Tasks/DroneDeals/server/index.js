@@ -7,6 +7,7 @@ const { createDrone } = require('./services/createDrone');
 const { getDrone } = require('./services/getDrone');
 const { getDetails } = require('./services/getDetails');
 const { updateDrone } = require('./services/updateDrone');
+const { deleteDrone } = require('./services/deleteDrone');
 
 const app = express();
 app.use(express.json());
@@ -38,6 +39,9 @@ app.get('/data/drones/:droneId', async (req, res) => {
 
 app.put('/data/drones/:droneId', async (req, res) => {
     await updateDrone(req, res);
-})
+});
 
+app.delete('/data/drones/:droneId', async (req, res) => {
+    await deleteDrone(req, res);
+});
 app.listen(2000);
