@@ -5,6 +5,7 @@ const { login } = require('./services/login');
 const { logout } = require('./services/logout');
 const { createDrone } = require('./services/createDrone');
 const { getDrone } = require('./services/getDrone');
+const { getDetails } = require('./services/getDetails');
 
 const app = express();
 app.use(express.json());
@@ -26,6 +27,11 @@ app.post('/data/drones', async(req, res) => {
 
 app.get('/data/drones', async(req, res) => {
     let result = await getDrone(req, res);
+    res.json(result);
+});
+
+app.get('/data/drones/:droneId', async(req, res) => {
+    let result = await getDetails(req, res);
     res.json(result);
 })
 
