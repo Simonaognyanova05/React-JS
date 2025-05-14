@@ -4,6 +4,7 @@ const { register } = require('./services/register');
 const { login } = require('./services/login');
 const { logout } = require('./services/logout');
 const { createDrone } = require('./services/createDrone');
+const { getDrone } = require('./services/getDrone');
 
 const app = express();
 app.use(express.json());
@@ -21,6 +22,11 @@ app.get('/users/logout', (req, res) => logout(req, res));
 
 app.post('/data/drones', async(req, res) => {
     await createDrone(req, res);
+});
+
+app.get('/data/drones', async(req, res) => {
+    let result = await getDrone(req, res);
+    res.json(result);
 })
 
 app.listen(2000);
