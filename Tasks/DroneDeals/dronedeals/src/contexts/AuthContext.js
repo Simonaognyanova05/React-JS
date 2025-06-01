@@ -24,8 +24,12 @@ export const AuthProvider = ({ children }) => {
         setUser(authData);
     };
 
+    const onLogout = () => {
+        setUser(initialState);
+    };
+
     return (
-        <AuthContext.Provider value={{ user, onRegister }}>
+        <AuthContext.Provider value={{ user, onRegister, onLogout }}>
             {children}
         </AuthContext.Provider>
     );

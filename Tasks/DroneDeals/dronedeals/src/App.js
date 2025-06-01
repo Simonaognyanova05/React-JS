@@ -8,6 +8,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import Home from './components/Home';
 import Header from "./components/Header";
+import Logout from './components/Logout';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route path='/edit' element={<Edit />} />
             <Route path='/details' element={<Details />} />
             <Route path='/create' element={<Create />} />
+            <Route path='/logout' element={<Logout />} />
           </Routes>
         </main>
       </div>
