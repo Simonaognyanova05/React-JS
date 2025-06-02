@@ -7,7 +7,8 @@ const mongooseSchema = new mongoose.Schema({
     condition: {type: String, required: true},
     weight: {type: Number, required: true},
     phone: {type: String, required: true},
-    description: {type: String, required: true}
+    description: {type: String, required: true},
+    ownerId: {type: String, required: true},
 });
 
 const Drone = mongoose.model('Drone', mongooseSchema);

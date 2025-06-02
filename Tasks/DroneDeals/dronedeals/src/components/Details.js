@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { getDetails } from "../services/getDetails";
 import { useParams } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
 
 export default function Details() {
     const [drone, setDrone] = useState([]);
+    const { user } = useAuth();
     const { droneId } = useParams();
 
     useEffect(() => {
@@ -13,6 +15,12 @@ export default function Details() {
             })
     }, [drone]);
 
+    const buttons = (
+        <div class="buttons">
+            <a href="" id="edit-btn">Edit</a>
+            <a href="" id="delete-btn">Delete</a>
+        </div>
+    );
     return (
         <section id="details">
             <div id="details-wrapper">
@@ -30,10 +38,11 @@ export default function Details() {
                         </p>
                         <p class="phone-number">Phone: {drone.phone}</p>
                     </div>
-                    <div class="buttons">
-                        <a href="" id="edit-btn">Edit</a>
-                        <a href="" id="delete-btn">Delete</a>
-                    </div>
+                    {
+                        drone.ownerId == user._id
+                            ? buttons
+                            : ''
+                    }
                 </div>
             </div>
         </section>

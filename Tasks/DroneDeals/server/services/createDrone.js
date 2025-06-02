@@ -11,11 +11,11 @@ const connectionParams = {
 async function createDrone(req, res) {
     await mongoose.connect(dbUrl, connectionParams);
 
-    const { model, imageUrl, price, condition, weight, phone, description } = req.body;
+    const { model, imageUrl, price, condition, weight, phone, description, ownerId } = req.body;
 
     try {
         const drone = new Drone({
-            model, imageUrl, price, condition, weight, phone, description
+            model, imageUrl, price, condition, weight, phone, description, ownerId
         });
 
         await drone.save();
