@@ -14,8 +14,9 @@ app.use(express.json());
 app.use(cors());
 
 app.post('/user/register', async (req, res) => {
-    await register(req, res);
+    await register(req, res); // Просто извиквате функцията
 });
+
 
 app.post('/user/login', async (req, res) => {
     await login(req, res);

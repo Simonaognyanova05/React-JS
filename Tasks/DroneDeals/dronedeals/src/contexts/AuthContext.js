@@ -4,7 +4,8 @@ export const AuthContext = createContext();
 
 const initialState = {
     _id: '',
-    email: ''
+    email: '',
+    accessToken: ''
 }
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(() => {
@@ -20,6 +21,10 @@ export const AuthProvider = ({ children }) => {
         }
     }, [user]);
 
+    const onLogin = (authData) => {
+        setUser(authData);
+    };
+
     const onRegister = (authData) => {
         setUser(authData);
     };
@@ -27,9 +32,8 @@ export const AuthProvider = ({ children }) => {
     const onLogout = () => {
         setUser(initialState);
     };
-
     return (
-        <AuthContext.Provider value={{ user, onRegister, onLogout }}>
+        <AuthContext.Provider value={{ user, onLogin, onRegister, onLogout }}>
             {children}
         </AuthContext.Provider>
     );

@@ -1,5 +1,5 @@
-export async function register(email, password) {
-    const res = await fetch('http://localhost:2000/user/register', {
+export async function login(email, password) {
+    const res = await fetch('http://localhost:2000/user/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -8,7 +8,7 @@ export async function register(email, password) {
     });
 
     if (!res.ok) {
-        throw new Error('Failed to register');
+        throw new Error('Failed to login');
     }
 
     return await res.json();

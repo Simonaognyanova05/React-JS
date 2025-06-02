@@ -18,10 +18,11 @@ export default function Register() {
         };
 
         register(email, password)
-            .then(res => {
-                onRegister(res);
-                navigate('/dashboard');
-            })
+            .then(result => {
+                onRegister(result);
+                navigate('/');
+            });
+
     }
     return (
         <section id="register">

@@ -12,20 +12,23 @@ const connectionParams = {
 async function register(req, res) {
     await mongoose.connect(dbUrl, connectionParams);
 
-    let { email, password } = req.body;
+    const { email, password } = req.body;
 
-    let hashedPass = await bcrypt.hash(password, 10);
+    if (!email || !password) {
+        return res.status(400).json({ message: "Email and password are required" });
+    }
 
     try {
-        const user = new User({
-            email, hashedPass
-        });
+        const hashedPass = await bcrypt.hash(password, 10);
+        const user = new User({ email, hashedPass });
 
         await user.save();
-        return res.status(200).json();
-    } catch {
-        res.send("Error");
+        return res.status(200).json({ message: "User registered successfully", _id: user._id, email: user.email });
+    } catch (err) {
+        console.error("Error registering user:", err);
+        return res.status(500).json({ message: "Internal server error" });
     }
 }
+
 
 module.exports = { register };

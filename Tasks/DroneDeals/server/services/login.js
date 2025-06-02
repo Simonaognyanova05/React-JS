@@ -25,7 +25,7 @@ async function login(req, res) {
             return res.status(401).json();
         }
 
-        return res.status(200).json({ _id: user._id, email: email });
+        return res.status(200).json({ message: "User logged successfully", _id: user._id, email: user.email });
     } catch (e) {
         throw e;
     }
