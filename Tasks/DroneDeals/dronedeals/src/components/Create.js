@@ -1,9 +1,29 @@
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
+import { create } from '../services/create';
+
 export default function Create() {
+    const navigate = useNavigate();
+    const { user } = useAuth();
+    const ownerId = user._id;
+
+    const createHandler = (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(e.currentTarget);
+        const { model, imageUrl, price, weight, phone, condition, description } = Object.fromEntries(formData);
+
+        create(model, imageUrl, price, weight, phone, condition, description, ownerId)
+            .then(res => {
+                console.log("success");
+                navigate('/dashboard');
+            })
+    }
     return (
         <section id="create">
             <div class="form form-item">
                 <h2>Add Drone Offer</h2>
-                <form class="create-form">
+                <form class="create-form" onSubmit={createHandler}>
                     <input type="text" name="model" id="model" placeholder="Drone Model" />
                     <input type="text" name="imageUrl" id="imageUrl" placeholder="Image URL" />
                     <input type="number" name="price" id="price" placeholder="Price" />

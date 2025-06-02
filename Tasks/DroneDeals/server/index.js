@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(cors());
 
 app.post('/user/register', async (req, res) => {
-    await register(req, res); // Просто извиквате функцията
+    await register(req, res); 
 });
 
 
@@ -24,7 +24,7 @@ app.post('/user/login', async (req, res) => {
 
 app.get('/users/logout', (req, res) => logout(req, res));
 
-app.post('/data/drones', async (req, res) => {
+app.post('/data/createDrones', async (req, res) => {
     await createDrone(req, res);
 });
 
