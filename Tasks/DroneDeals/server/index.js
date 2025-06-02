@@ -42,7 +42,7 @@ app.put('/data/edit/:droneId', async (req, res) => {
     await updateDrone(req, res);
 });
 
-app.delete('/data/drones/:droneId', async (req, res) => {
+app.delete('/data/delete/:droneId', async (req, res) => {
     await deleteDrone(req, res);
 });
 app.listen(2000);

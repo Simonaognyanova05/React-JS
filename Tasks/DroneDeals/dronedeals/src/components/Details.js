@@ -18,7 +18,7 @@ export default function Details() {
     const buttons = (
         <div class="buttons">
             <Link to={`/data/edit/${droneId}`} id="edit-btn">Edit</Link>
-            <Link to="" id="delete-btn">Delete</Link>
+            <Link to={`/data/delete/${droneId}`} id="delete-btn">Delete</Link>
         </div>
     );
     return (

@@ -9,6 +9,7 @@ import Register from './components/Register';
 import Home from './components/Home';
 import Header from "./components/Header";
 import Logout from './components/Logout';
+import Delete from './components/Delete';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path='/register' element={<Register />} />
             <Route path='/login' element={<Login />} />
             <Route path='/data/edit/:droneId' element={<Edit />} />
+            <Route path='/data/delete/:droneId' element={<Delete />} />
             <Route path='/data/drones/:droneId' element={<Details />} />
             <Route path='/create' element={<Create />} />
             <Route path='/logout' element={<Logout />} />
