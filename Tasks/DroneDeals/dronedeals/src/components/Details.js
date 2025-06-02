@@ -1,23 +1,34 @@
+import { useEffect, useState } from "react";
+import { getDetails } from "../services/getDetails";
+import { useParams } from "react-router-dom";
+
 export default function Details() {
+    const [drone, setDrone] = useState([]);
+    const { droneId } = useParams();
+
+    useEffect(() => {
+        getDetails(droneId)
+            .then(res => {
+                setDrone(res);
+            })
+    }, [drone]);
+
     return (
         <section id="details">
             <div id="details-wrapper">
                 <div>
-                    <img id="details-img" src="./images/avata2.jpg" alt="example1" />
-                    <p id="details-model">DJI Avata</p>
+                    <img id="details-img" src={drone.imageUrl} alt="example1" />
+                    <p id="details-model">{drone.model}</p>
                 </div>
                 <div id="info-wrapper">
                     <div id="details-description">
-                        <p class="details-price">Price: €450</p>
-                        <p class="details-condition">Condition: New</p>
-                        <p class="details-weight">Weight: 410g</p>
+                        <p class="details-price">Price: €{drone.price}</p>
+                        <p class="details-condition">Condition: {drone.condition}</p>
+                        <p class="details-weight">Weight: {drone.weight}g</p>
                         <p class="drone-description">
-                            The DJI Avata is an innovative FPV (First-Person View) drone designed for immersive flying
-                            experiences. With a compact and robust design, it features a 4K camera capable of capturing
-                            stunning aerial footage at 60 fps. Equipped with advanced stabilization technology,
-                            the Avata ensures smooth video even in dynamic environments.
+                            {drone.description}
                         </p>
-                        <p class="phone-number">Phone: 0987654321</p>
+                        <p class="phone-number">Phone: {drone.phone}</p>
                     </div>
                     <div class="buttons">
                         <a href="" id="edit-btn">Edit</a>

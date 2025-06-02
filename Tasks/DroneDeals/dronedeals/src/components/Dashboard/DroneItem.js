@@ -1,3 +1,5 @@
+import {Link} from 'react-router-dom';
+
 export default function DroneItem({drone}) {
     return (
         <div class="drone">
@@ -8,7 +10,7 @@ export default function DroneItem({drone}) {
                 <p class="condition">Condition: {drone.condition}</p>
                 <p class="weight">Weight: {drone.weight}g</p>
             </div>
-            <a class="details-btn" href="#">Details</a>
+            <Link class="details-btn" to={`/data/drones/${drone._id}`}>Details</Link>
         </div>
     );
 }

@@ -22,8 +22,6 @@ export default function Dashboard() {
                         }
                     </section> : <h3 class="no-drones">No Drones Available</h3>
             }
-
-
         </>
     );
 }

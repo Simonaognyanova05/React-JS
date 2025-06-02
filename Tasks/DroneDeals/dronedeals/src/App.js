@@ -23,7 +23,7 @@ function App() {
             <Route path='/register' element={<Register />} />
             <Route path='/login' element={<Login />} />
             <Route path='/edit' element={<Edit />} />
-            <Route path='/details' element={<Details />} />
+            <Route path='/data/drones/:droneId' element={<Details />} />
             <Route path='/create' element={<Create />} />
             <Route path='/logout' element={<Logout />} />
           </Routes>
