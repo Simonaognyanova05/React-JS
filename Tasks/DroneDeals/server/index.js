@@ -38,7 +38,7 @@ app.get('/data/drones/:droneId', async (req, res) => {
     res.json(result);
 });
 
-app.put('/data/drones/:droneId', async (req, res) => {
+app.put('/data/edit/:droneId', async (req, res) => {
     await updateDrone(req, res);
 });
 

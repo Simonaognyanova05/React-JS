@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getDetails } from "../services/getDetails";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 
 export default function Details() {
@@ -17,8 +17,8 @@ export default function Details() {
 
     const buttons = (
         <div class="buttons">
-            <a href="" id="edit-btn">Edit</a>
-            <a href="" id="delete-btn">Delete</a>
+            <Link to={`/data/edit/${droneId}`} id="edit-btn">Edit</Link>
+            <Link to="" id="delete-btn">Delete</Link>
         </div>
     );
     return (
