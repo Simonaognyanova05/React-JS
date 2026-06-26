@@ -6,6 +6,7 @@ function App() {
       <header className="App-header">
         <h1>ToDo App</h1>
 
+{/* add static list */}
         <main>
           <h2>Tasks</h2>
           <ul>
