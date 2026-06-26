@@ -1,3 +1,4 @@
+import ToDoList from './components/ToDoList';
 import './App.css';
 
 function App() {
@@ -6,14 +7,9 @@ function App() {
       <header className="App-header">
         <h1>ToDo App</h1>
 
-{/* add static list */}
         <main>
           <h2>Tasks</h2>
-          <ul>
-            <li>Clean</li>
-            <li>Go shopping</li>
-            <li>Learn React</li>
-          </ul>
+         <ToDoList/>
         </main>
 
         <footer>All rights resieved. &copy;</footer>
